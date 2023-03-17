@@ -65,27 +65,7 @@ class Gestion_livre{
      */ 
     public function getId_livre(){ return $this->id_livre;}
 
-    public function createbook(){
-        $req= $this->bdd->prepare("INSERT INTO livre (titre,annee,resume) VALUES (:titre,:annee,:resume)");
-        $req->execute([
-                "titre"=>$_POST["titre"],
-                "annee"=>$_POST["annee"],
-                "resume"=>$_POST["resume"]]);
-        }
 
-        public function Updatebook(){
-            $req= $this->bdd->prepare("UPDATE livre SET titre= :titre,annee=:annee,resume=:resume WHERE id_livre=:id_livre");
-            $req->execute(["titre"=>$_POST["titre"],
-            "annee"=>$_POST["annee"],
-            "resume"=>$_POST["resume"]]);
-    }
-
-    public function Deletebook(){
-        $req= $this->bdd->prepare("DELETE FROM livre WHERE id_livre=:id_livre");
-        $req->execute(["titre"=>$_POST["titre"],
-        "annee"=>$_POST["annee"],
-        "resume"=>$_POST["resume"]]);
-}
 
 }
 ?>
