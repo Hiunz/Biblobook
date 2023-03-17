@@ -11,9 +11,9 @@ Vous avez déjà à votre disposition le schéma de la base de données.
 
 
 
-### Les fonctionnalités 
+# Les fonctionnalités 
 
-# Côté utilisateur 
+## Côté utilisateur 
 
 - Conception de la base de données : La base de données devrait inclure toutes les informations pertinentes sur les livres, les utilisateurs et les emprunts. 
 
@@ -35,7 +35,7 @@ Vous avez déjà à votre disposition le schéma de la base de données.
 
 
 
-# Côté Administrateur 
+## Côté Administrateur 
 
 - Mise en place du système d'authentification : L'administrateur doit pouvoir se connecter à son compte avec un nom d'utilisateur et un mot de passe. 
 
