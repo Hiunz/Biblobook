@@ -2,7 +2,7 @@
 
 class Utilisateur {
 
-    private $id_ustilisateur;
+    private $id_utilisateur;
     private $nom;
     private $prenom;
     private $email;
