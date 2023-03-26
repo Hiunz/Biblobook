@@ -62,6 +62,8 @@ CREATE TABLE IF NOT EXISTS `livre` (
   `titre` varchar(50) NOT NULL,
   `annee` varchar(4) NOT NULL,
   `resume` text NOT NULL,
+  `edition` varchar(50) NOT NULL,
+  `categorie` varchar(50) NOT NULL,
   PRIMARY KEY (`id_livre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
