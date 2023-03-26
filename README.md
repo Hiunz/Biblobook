@@ -5,7 +5,12 @@ Projet PHP : Gestion d’une bibliothèque
 
 Introduction 
 
-La bibliothèque publique de la ville de Lyon souhaite offrir à ses usagers un accès en ligne pratique et facile à leur catalogue de livres. Avec l'augmentation des utilisateurs en ligne, la bibliothèque a décidé de mettre en place un site web dédié à la gestion des emprunts de livres. Le site permettra aux utilisateurs de consulter le catalogue, de rechercher des livres, de les emprunter, de les réserver, de prolonger les emprunts et de gérer leur compte en ligne. Le système de gestion d'emprunt en ligne facilitera également la tâche du personnel de la bibliothèque en réduisant le temps passé à traiter les emprunts manuellement. Grâce à ce site web, la bibliothèque espère offrir une expérience de lecture plus agréable et améliorer l'efficacité de la gestion de sa collection de livres. 
+La bibliothèque publique de la ville de Lyon souhaite offrir à ses usagers un accès en ligne pratique et facile à leur catalogue de livres.
+Avec l'augmentation des utilisateurs en ligne, la bibliothèque a décidé de mettre en place un site web dédié à la gestion des emprunts de livres.
+Le site permettra aux utilisateurs de consulter le catalogue, de rechercher des livres, de les emprunter, de les réserver, de prolonger les emprunts
+et de gérer leur compte en ligne. Le système de gestion d'emprunt en ligne facilitera également la tâche du personnel de la bibliothèque en réduisant
+le temps passé à traiter les emprunts manuellement. Grâce à ce site web, la bibliothèque espère offrir une expérience de lecture plus agréable et 
+améliorer l'efficacité de la gestion de sa collection de livres. 
 
 Vous avez déjà à votre disposition le schéma de la base de données. 
 

@@ -1,35 +1,18 @@
 <?php
-public class Auteur {
-private $id_auteur;
+class Auteur {
+
 private $nom;
 private $prenom;
 private $date_de_naissance;
 private $bdd;
 
-public function __construct($id_auteur,$nom,$prenom,$date_de_naissance,$bdd)
+public function __construct($nom,$prenom,$date_de_naissance,$bdd)
 {
-    $this->id_auteur = $id_auteur;
     $this->$nom;
     $this->$prenom;
     $this->$date_de_naissance;
     $this->bdd;
 }
-
-
-/**
- * Get the value of id_auteur
- */ 
-public function getId_auteur()
-{return $this->id_auteur;}
-
-/**
- * Set the value of id_auteur
- *
- * @return  self
- */ 
-public function setId_auteur($id_auteur)
-{$this->id_auteur = $id_auteur;
-return $this;}
 
 /**
  * Get the value of nom

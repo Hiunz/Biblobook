@@ -1,21 +1,22 @@
 <?php
 class Livre {
 
-    private $id_livre;
     private $titre;
     private $annee;
     private $resume;
     private $edition;
+    private $categorie;
 
 
 
-    public function __construct($id_livre,$titre,$annee,$resume,$edition)
+
+    public function __construct($titre,$annee,$resume,$edition,$categorie)
     {
-        $this->id_livre = $id_livre;
         $this->titre = $titre;
         $this->annee = $annee;
         $this->resume->$resume;
         $this->edition = $edition;
+        $this->categorie = $categorie;
     }
     /**
      * Set the value of titre
@@ -63,11 +64,6 @@ class Livre {
         return $this; }
 
     /**
-     * Get the value of id_livre
-     */
-    public function getId_livre(){ return $this->id_livre;}
-
-    /**
      * @return mixed
      */
     public function getEdition()
@@ -75,6 +71,21 @@ class Livre {
         return $this->edition;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
+    }
+
+    /**
+     * @param mixed $categorie
+     */
+    public function setCategorie($categorie)
+    {
+        $this->categorie = $categorie;
+    }
 
 }
 ?>

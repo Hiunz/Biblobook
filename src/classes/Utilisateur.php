@@ -2,7 +2,6 @@
 
 class Utilisateur {
 
-    private $id_utilisateur;
     private $nom;
     private $prenom;
     private $email;
@@ -14,7 +13,6 @@ class Utilisateur {
     private $admin;
 
     /**
-     * @param $id_utilisateur
      * @param $nom
      * @param $prenom
      * @param $email
@@ -25,9 +23,8 @@ class Utilisateur {
      * @param $ville
      * @param $admin
      */
-    public function __construct($id_utilisateur, $nom, $prenom, $email, $tel_fixe, $tel_portable, $rue, $cp, $ville, $admin)
+    public function __construct($nom, $prenom, $email, $tel_fixe, $tel_portable, $rue, $cp, $ville, $admin)
     {
-        $this->id_utiliateur = $id_utilisateur;
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->email = $email;
@@ -38,8 +35,6 @@ class Utilisateur {
         $this->ville = $ville;
         $this->admin = $admin;
     }
-
-
 
 
 }

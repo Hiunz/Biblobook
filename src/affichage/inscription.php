@@ -53,7 +53,7 @@
           <h2 data-aos="fade-up" data-aos-delay="400" style="" class="aos-init aos-animate">ou</h2>
           <div data-aos="fade-up" data-aos-delay="600" class="aos-init aos-animate">
             <div class="text-center text-lg-start">
-              <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+              <a href="../../src/affichage/connexion.php" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
                 <span>Se connecter</span>
                 <i class="bi bi-arrow-right"></i>
               </a>
@@ -68,20 +68,38 @@
               <div class="row gy-4">
 
                 <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                  <input type="text" name="nom" class="form-control" placeholder="Votre nom" required="">
                 </div>
 
                 <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                  <input type="email" class="form-control" name="prenom" placeholder="Votre prénom" required="">
                 </div>
 
                 <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                  <input type="text" class="form-control" name="email" placeholder="Votre adresse mail" required="">
                 </div>
 
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                </div>
+                  <div class="col-md-12">
+                      <input type="text" class="form-control" name="tel_fixe" placeholder="Votre téléphone fixe" required="">
+                  </div>
+
+                  <div class="col-md-12">
+                      <input type="text" class="form-control" name="tel_port" placeholder="Votre téléphone portable" required="">
+                  </div>
+
+                  <div class="col-md-12">
+                      <input type="text" class="form-control" name="rue" placeholder="Votre rue" required="">
+                  </div>
+
+                  <div class="col-md-12">
+                      <input type="text" class="form-control" name="cp" placeholder="Votre code postal" required="">
+                  </div>
+
+                  <div class="col-md-12">
+                      <input type="text" class="form-control" name="ville" placeholder="Votre ville" required="">
+                  </div>
+
+
 
                 <div class="col-md-12 text-center">
                   <div class="loading">Loading</div>
