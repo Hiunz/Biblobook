@@ -1,11 +1,11 @@
 
   <!-- ======= Header ======= -->
-  <?php $fileName = explode("/", $_SERVER["SCRIPT_NAME"]);array_pop($fileName);?>
+  <?php $fileName = explode("/", $_SERVER["SCRIPT_NAME"]); $fileName = array_pop($fileName);?>
   <header id="header" class="header fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
-        <img src="assets/img/template/logo.png" alt="">
+      <a href="<?=($fileName=="index.php")?"":"../../"?>index.php" class="logo d-flex align-items-center">
+        <img src="<?=($fileName=="index.php")?"":"../../"?>assets/img/template/logo.png" alt="">
         <span>Biblobook</span>
       </a>
 
@@ -35,7 +35,7 @@
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="getstarted scrollto" href="<?=($fileName!="index.php")?"connexion.php":"src/affichage/connexion.php"?>">Se connecter</a></li>
+          <li><a class="getstarted scrollto" href="<?=($fileName=="index.php")?"src/affichage/":""?>connexion.php">Se connecter</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

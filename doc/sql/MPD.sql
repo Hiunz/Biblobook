@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `emprunt` (
   `date` date NOT NULL,
   `delais` int(3) NOT NULL,
   `ref_exemplaire` int(11) NOT NULL,
-  `ref_inscrit` int(11) NOT NULL,
+  `ref_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id_emprunt`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -41,9 +41,9 @@ CREATE TABLE IF NOT EXISTS `exemplaire` (
   PRIMARY KEY (`id_exemplaire`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-DROP TABLE IF EXISTS `inscrit`;
-CREATE TABLE IF NOT EXISTS `inscrit` (
-  `id_inscrit` int(11) NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `utilisateur`;
+CREATE TABLE IF NOT EXISTS `utilisateur` (
+  `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(50) NOT NULL,
   `prenom` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `inscrit` (
   `cp` varchar(5) NOT NULL,
   `ville` varchar(50) NOT NULL,
   `admin` BOOLEAN NOT NULL DEFAULT FALSE,
-  PRIMARY KEY (`id_inscrit`)
+  PRIMARY KEY (`id_utilisateur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS `livre`;
@@ -83,7 +83,7 @@ ALTER TABLE `ecrire`
 
 ALTER TABLE `emprunt`
   ADD CONSTRAINT `fk_emprunt_exemplaire` FOREIGN KEY (`ref_exemplaire`) REFERENCES `exemplaire` (`id_exemplaire`),
-  ADD CONSTRAINT `fk_emprunt_inscrit` FOREIGN KEY (`ref_inscrit`) REFERENCES `inscrit` (`id_inscrit`);
+  ADD CONSTRAINT `fk_emprunt_utilisateur` FOREIGN KEY (`ref_utilisateur`) REFERENCES `utilisateur` (`id_utilisateur`);
 
 ALTER TABLE `exemplaire`
   ADD CONSTRAINT `fk_exemplaire_edition` FOREIGN KEY (`ref_edition`) REFERENCES `edition` (`id_edition`),

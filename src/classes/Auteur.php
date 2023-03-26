@@ -1,5 +1,5 @@
 <?php
-public class Auteur {
+class Auteur {
 private $id_auteur;
 private $nom;
 private $prenom;

@@ -14,18 +14,7 @@ class Utilisateur {
     private $ville;
     private $admin;
 
-    /**
-     * @param $id_utilisateur
-     * @param $nom
-     * @param $prenom
-     * @param $email
-     * @param $tel_fixe
-     * @param $tel_portable
-     * @param $rue
-     * @param $cp
-     * @param $ville
-     * @param $admin
-     */
+    
     public function __construct($id_utilisateur, $nom, $prenom, $email, $mdp, $tel_fixe, $tel_portable, $rue, $cp, $ville, $admin)
     {
         $this->id_utilisateur = $id_utilisateur;

@@ -30,6 +30,7 @@
   <!-- Map integration -->
   <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
   <script src="//cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <?php session_start();?>
 
 </head>
 
@@ -44,7 +45,7 @@
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center" style="display: flex;align-items: center; padding: 30px;">
           <h1 data-aos="fade-up" class="aos-init aos-animate">Inscription</h1>
-          <h2 data-aos="fade-up" data-aos-delay="400" style="" class="aos-init aos-animate">ou</h2>
+          <h2 data-aos="fade-up" data-aos-delay="400" class="aos-init aos-animate">ou</h2>
           <div data-aos="fade-up" data-aos-delay="600" class="aos-init aos-animate">
             <div class="text-center text-lg-start">
               <a href="connexion.php" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
@@ -62,45 +63,47 @@
               <div class="row gy-4 counts" style="padding:10px;">
 
                 <div class="col-md-6">
-                  <input type="text" name="nom" class="form-control" placeholder="Nom" required="">
+                  <input value="<?= (isset($_SESSION['cache']['nom']))?$_SESSION['cache']['nom']:""?>" type="text" name="nom" class="form-control" placeholder="Nom" required="">
                 </div>
 
                 <div class="col-md-6">
-                  <input type="text" class="form-control" name="prenom" placeholder="Prénom" required="">
+                  <input value="<?= (isset($_SESSION['cache']['prenom']))?$_SESSION['cache']['prenom']:""?>" type="text" class="form-control" name="prenom" placeholder="Prénom" required="">
                 </div>
 
                 <div class="col-md-12">
-                  <input type="email" class="form-control" name="email" placeholder="E-mail" required="">
+                  <input value="<?= (isset($_SESSION['cache']['email']))?$_SESSION['cache']['email']:""?>" type="email" class="form-control" name="email" placeholder="E-mail" required="">
                 </div>
                 
                 <div class="col-md-6">
-                  <input type="password" class="form-control" name="mdp[]" placeholder="Mot de passe" required="">
+                  <input value="<?= (isset($_SESSION['cache']['mdp'][0]))?$_SESSION['cache']['mdp'][0]:""?>" type="password" class="form-control" name="mdp[]" placeholder="Mot de passe" required="">
                 </div>
 
                 <div class="col-md-6">
-                  <input type="password" class="form-control" name="mdp[]" placeholder="Confirmation" required="">
+                  <input value="<?= (isset($_SESSION['cache']['mdp'][1]))?$_SESSION['cache']['mdp'][1]:""?>" type="password" class="form-control" name="mdp[]" placeholder="Confirmation" required="">
                 </div>                
 
                 <div class="col-md-6">
-                  <input type="tel" name="telfixe[]" class="form-control" placeholder="N°Tel portable" required="">
+                  <input value="<?= (isset($_SESSION['cache']['telfixe'][0]))?$_SESSION['cache']['telfixe'][0]:""?>" type="tel" name="telfixe[]" class="form-control" placeholder="N°Tel portable" required="">
                 </div>
 
                 <div class="col-md-6">
-                  <input type="tel" name="telfixe[]" class="form-control" placeholder="N°Tel fixe" required="">
+                  <input value="<?= (isset($_SESSION['cache']['telfixe'][1]))?$_SESSION['cache']['telfixe'][1]:""?>" type="tel" name="telfixe[]" class="form-control" placeholder="N°Tel fixe" required="">
                 </div>
                 
                 <div class="col-md-12">
-                  <input id="adress" type="text" class="form-control" name="address" placeholder="Adresse" required="">
+                  <input value="<?= (isset($_SESSION['cache']['adress']))?$_SESSION['cache']['adress']:""?>" id="adress" type="text" class="form-control" name="adress" placeholder="Adresse" required="">
                 </div>
                 <div class="count-box" style="margin-left: 20px; padding: 10px; width: auto; font-size: 0.5em;">
                   <span id="adresstext" style="font-size: 2.2em;">Adresse</span>
                 </div>
-                <input id="rue" type="hidden" class="form-control" name="address" placeholder="Adresse" required="">
-                <input id="cp" type="hidden" class="form-control" name="address" placeholder="Adresse" required="">
-                <input id="ville" type="hidden" class="form-control" name="address" placeholder="Adresse" required="">
+                <input value="<?= (isset($_SESSION['cache']['rue']))?$_SESSION['cache']['rue']:""?>" id="rue" type="hidden" class="form-control" name="rue" placeholder="Adresse" required="">
+                <input value="<?= (isset($_SESSION['cache']['cp']))?$_SESSION['cache']['cp']:""?>" id="cp" type="hidden" class="form-control" name="cp" placeholder="Adresse" required="">
+                <input value="<?= (isset($_SESSION['cache']['ville']))?$_SESSION['cache']['ville']:""?>" id="ville" type="hidden" class="form-control" name="ville" placeholder="Adresse" required="">
                 
                 <script>
-                  document.getElementById('adress').addEventListener('input', () => {
+                  document.addEventListener('DOMContentLoaded', adresse);
+                  document.getElementById('adress').addEventListener('input', adresse);
+                  function adresse(){
                     const requester = new XMLHttpRequest();
                     requester.open("GET", "https://api-adresse.data.gouv.fr/search/?q="+document.getElementById('adress').value+"&autocomplete=1");
                     requester.send();
@@ -126,7 +129,7 @@
                         document.getElementById('adresstext').innerHTML = "Aucune adresse semblable trouvée !!!";
                       }
                     };
-                  });
+                  }
                 </script>
               
                 
@@ -135,7 +138,7 @@
 
                 <div class="col-md-12 text-center">
                   <div class="loading">Loading</div>
-                  <div class="error-message"></div>
+                  <div class="error-message" style="<?=(isset($_SESSION['error']))?"display: block;":""?>"><?=(isset($_SESSION['error']))?$_SESSION["error"]:""?></div>
                   <div class="sent-message">Your message has been sent. Thank you!</div>
 
                   <button type="submit">S'inscrire</button>
@@ -143,17 +146,16 @@
 
               </div>
             </form>
-
           </div>
-
+          
+        </div>
       </div>
-    </div>
-
-  </section>
-
+      
+    </section>
+    
+    <?php $_SESSION['cache'] = null; $_SESSION['error'] = null; ?>
     
   
-  <a href="../../#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="../../assets/vendor/purecounter/purecounter_vanilla.js"></script>
