@@ -6,6 +6,7 @@ class Utilisateur {
     private $nom;
     private $prenom;
     private $email;
+    private $mdp;
     private $tel_fixe;
     private $tel_portable;
     private $rue;
@@ -25,12 +26,13 @@ class Utilisateur {
      * @param $ville
      * @param $admin
      */
-    public function __construct($id_utilisateur, $nom, $prenom, $email, $tel_fixe, $tel_portable, $rue, $cp, $ville, $admin)
+    public function __construct($id_utilisateur, $nom, $prenom, $email, $mdp, $tel_fixe, $tel_portable, $rue, $cp, $ville, $admin)
     {
-        $this->id_utiliateur = $id_utilisateur;
+        $this->id_utilisateur = $id_utilisateur;
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->email = $email;
+        $this->mdp = $mdp;
         $this->tel_fixe = $tel_fixe;
         $this->tel_portable = $tel_portable;
         $this->rue = $rue;

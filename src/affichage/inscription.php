@@ -27,13 +27,10 @@
   <!-- Template Main CSS File -->
   <link href="../../assets/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: FlexStart
-  * Updated: Mar 10 2023 with Bootstrap v5.2.3
-  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <!-- Map integration -->
+  <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  <script src="//cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
 </head>
 
 <body>
@@ -41,19 +38,16 @@
     include "include/navbar.php";
   ?>
   <!-- ======= Hero Section ======= -->
-  <section class="hero d-flex align-items-center" id="hero">
+  <section class="hero d-flex align-items-center" id="hero" style="padding-top:90px;">
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 d-flex flex-column justify-content-center" style="
-    display: flex;
-    align-items: center;
-">
+        <div class="col-lg-6 d-flex flex-column justify-content-center" style="display: flex;align-items: center; padding: 30px;">
           <h1 data-aos="fade-up" class="aos-init aos-animate">Inscription</h1>
           <h2 data-aos="fade-up" data-aos-delay="400" style="" class="aos-init aos-animate">ou</h2>
           <div data-aos="fade-up" data-aos-delay="600" class="aos-init aos-animate">
             <div class="text-center text-lg-start">
-              <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+              <a href="connexion.php" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
                 <span>Se connecter</span>
                 <i class="bi bi-arrow-right"></i>
               </a>
@@ -64,24 +58,80 @@
           
 
           <div class="col-lg-6 contact">
-            <form action="forms/contact.php" method="post" class="php-email-form">
-              <div class="row gy-4">
+            <form action="../traitement/inscription.php" method="post" class="php-email-form">
+              <div class="row gy-4 counts" style="padding:10px;">
 
                 <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                  <input type="text" name="nom" class="form-control" placeholder="Nom" required="">
                 </div>
 
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                <div class="col-md-6">
+                  <input type="text" class="form-control" name="prenom" placeholder="Prénom" required="">
                 </div>
 
                 <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                  <input type="email" class="form-control" name="email" placeholder="E-mail" required="">
                 </div>
+                
+                <div class="col-md-6">
+                  <input type="password" class="form-control" name="mdp[]" placeholder="Mot de passe" required="">
+                </div>
+
+                <div class="col-md-6">
+                  <input type="password" class="form-control" name="mdp[]" placeholder="Confirmation" required="">
+                </div>                
+
+                <div class="col-md-6">
+                  <input type="tel" name="telfixe[]" class="form-control" placeholder="N°Tel portable" required="">
+                </div>
+
+                <div class="col-md-6">
+                  <input type="tel" name="telfixe[]" class="form-control" placeholder="N°Tel fixe" required="">
+                </div>
+                
+                <div class="col-md-12">
+                  <input id="adress" type="text" class="form-control" name="address" placeholder="Adresse" required="">
+                </div>
+                <div class="count-box" style="margin-left: 20px; padding: 10px; width: auto; font-size: 0.5em;">
+                  <span id="adresstext" style="font-size: 2.2em;">Adresse</span>
+                </div>
+                <input id="rue" type="hidden" class="form-control" name="address" placeholder="Adresse" required="">
+                <input id="cp" type="hidden" class="form-control" name="address" placeholder="Adresse" required="">
+                <input id="ville" type="hidden" class="form-control" name="address" placeholder="Adresse" required="">
+                
+                <script>
+                  document.getElementById('adress').addEventListener('input', () => {
+                    const requester = new XMLHttpRequest();
+                    requester.open("GET", "https://api-adresse.data.gouv.fr/search/?q="+document.getElementById('adress').value+"&autocomplete=1");
+                    requester.send();
+                    requester.responseType = "json";
+                    requester.onload = () => {
+                      if (requester.readyState == 4 && requester.status == 200) {
+                        var data = requester.response;
+                        console.log(data);
+                        if (data.features.length!=0) {
+                          document.getElementById('rue').value = data.features[0].properties.housenumber+" "+data.features[0].properties.street;
+                          document.getElementById('cp').value = data.features[0].properties.postcode;
+                          document.getElementById('ville').value = data.features[0].properties.city;
+                          document.getElementById('adresstext').innerHTML = data.features[0].properties.label;
+                          console.log(document.getElementById('rue').value)
+                          console.log(document.getElementById('cp').value)
+                          console.log(document.getElementById('ville').value)
+                        }
+                      } else {
+                        console.log(`Error: ${xhr.status}`);
+                        document.getElementById('rue').value = null;
+                        document.getElementById('cp').value = null;
+                        document.getElementById('ville').value = null;
+                        document.getElementById('adresstext').innerHTML = "Aucune adresse semblable trouvée !!!";
+                      }
+                    };
+                  });
+                </script>
+              
+                
+
+                
 
                 <div class="col-md-12 text-center">
                   <div class="loading">Loading</div>
