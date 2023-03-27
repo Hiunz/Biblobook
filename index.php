@@ -50,7 +50,7 @@
           <h2 data-aos="fade-up" data-aos-delay="400">Trouvez vos livre préférés chez nous !</h2>
           <div data-aos="fade-up" data-aos-delay="600">
             <div class="text-center text-lg-start">
-              <a href="src/affichage/recherche.html" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+              <a href="src/affichage/recherche.php" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
                 <span>Cherchez vos livres</span>
                 <i class="bi bi-arrow-right"></i>
               </a>

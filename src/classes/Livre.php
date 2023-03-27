@@ -8,13 +8,11 @@ class Livre {
     private $categorie;
 
 
-
-
-    public function __construct($titre,$annee,$resume,$edition,$categorie)
+    public function __construct($titre = null,$annee = null,$resume = null,$edition = null,$categorie = null)
     {
         $this->titre = $titre;
         $this->annee = $annee;
-        $this->resume->$resume;
+        $this->resume = $resume;
         $this->edition = $edition;
         $this->categorie = $categorie;
     }
