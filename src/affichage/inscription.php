@@ -137,11 +137,10 @@
                 
 
                 <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
                   <div class="error-message" style="<?=(isset($_SESSION['error']))?"display: block;":""?>"><?=(isset($_SESSION['error']))?$_SESSION["error"]:""?></div>
                   <div class="sent-message">Your message has been sent. Thank you!</div>
 
-                  <button type="submit">S'inscrire</button>
+                  <button type="submit" id="sub_btn">S'inscrire</button>
                 </div>
 
               </div>
@@ -158,13 +157,11 @@
   
 
   <!-- Vendor JS Files -->
-  <script src="../../assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="../../assets/vendor/aos/aos.js"></script>
   <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../../assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="../../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="../../assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
   <script src="../../assets/js/main.js"></script>

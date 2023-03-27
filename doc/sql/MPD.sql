@@ -47,6 +47,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `nom` varchar(50) NOT NULL,
   `prenom` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
+  `mdp` varchar(50) NOT NULL,
   `tel_fixe` varchar(15) NOT NULL,
   `tel_portable` varchar(15) NOT NULL,
   `rue` varchar(80) NOT NULL,
