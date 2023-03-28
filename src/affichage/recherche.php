@@ -36,18 +36,21 @@
 
 <?php
 include "include/navbar.php";
+?>
+<br><br><br>
+<?=
 require_once "../../src/controller/LivreController.php";
 require_once "../../src/classes/Livre.php";
+require_once "../../src/bdd/Bdd.php";
+$livreController = new LivreController();
 ?>
-
-<?= $livreController = new LivreController();
-$livreController->getLivres()?>
 
 <link rel="stylesheet" type="text/css" href="datatables.min.css">
 <script type="text/javascript" src="datatables.min.js"></script>
 
 <table id="test">
     <thead>
+    <th>Id livre</th>
     <th>Titre</th>
     <th>Annee</th>
     <th>Resume</th>
@@ -56,14 +59,20 @@ $livreController->getLivres()?>
     </thead>
 
     <tbody>
-    <tr>
-        <td><?= $titre = $livreController->getTitre()?></td>
-        <td><?= $annee = $livreController->getAnnee()?></td>
-        <td><?= $resumé = $livreController->getResume()?></td>
-        <td><?= $edition = $livreController->getEdition()?></td>
-        <td><?= $categorie = $livreController->getCategorie()?></td>
-    </tr>
-
+    <?php for ($i = 0; $i < $livreController->getNbLivres(); $i++){ ?>
+        <tr>
+            <td>
+            <?= $res = $livreController->getLivres()->getTitre();
+            var_dump($res);
+            ?>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    <?php } ?>
     </tbody>
 </table>
 <script type="text/javascript">
