@@ -1,97 +1,77 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cherchez vos livres</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
 
-    <!-- Favicons -->
-    <link href="../../assets/img/template/favicon.png" rel="icon">
-    <link href="../../assets/img/template/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-    <!-- Vendor CSS Files -->
-    <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="../../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
 
-    <!-- Template Main CSS File -->
-    <link href="../../assets/css/style.css" rel="stylesheet">
-
-    <!-- Map integration -->
-    <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-    <script src="//cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-    <?php session_start();?>
-
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#table').DataTable();
+        });
+    </script>
+    <style>
+        .dataTables_filter{
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
-<body>
 
-<?php
-include "include/navbar.php";
-?>
-<br><br><br>
-<?=
-require_once "../../src/controller/LivreController.php";
-require_once "../../src/classes/Livre.php";
-require_once "../../src/bdd/Bdd.php";
-$livreController = new LivreController();
-?>
+<body style="display: flex;align-items: center;flex-direction: column;padding: 40px;">
+<div class="col-md-10" style="
+    padding: 20px;
+    border: solid;
+    border-radius: 40px;
+    background-color: #f7fffa;">
+    <div class="hero-callout">
+        <div id="example_wrapper" class="dataTables_wrapper">
 
-<link rel="stylesheet" type="text/css" href="datatables.min.css">
-<script type="text/javascript" src="datatables.min.js"></script>
+            <table id="table" class="display nowrap dataTable dtr-inline collapsed" style="width: 100%;border: solid;margin-bottom: 10px;border-color: #b9b9b9;" aria-describedby="example_info">
 
-<table id="test">
-    <thead>
-    <th>Id livre</th>
-    <th>Titre</th>
-    <th>Annee</th>
-    <th>Resume</th>
-    <th>Édition</th>
-    <th>Catégorie</th>
-    </thead>
+                <thead>
+                <tr>
+                    <th class="sorting sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 102px;" aria-sort="ascending" aria-label="Titre: activate to sort column descending">Titre</th>
+                    <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 168px;" aria-label="Annee: activate to sort column ascending">Annee</th>
+                    <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 75px;" aria-label="Resume: activate to sort column ascending">Resume</th>
+                    <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 75px;" aria-label="Resume: activate to sort column ascending">Edition</th>
+                    <th class="sorting sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 102px;" aria-sort="ascending" aria-label="Titre: activate to sort column descending">Categorie</th>
+                </tr>
+                </thead>
 
-    <tbody>
-    <?php for ($i = 0; $i < $livreController->getNbLivres(); $i++){ ?>
-        <tr>
-            <td>
-            <?= $res = $livreController->getLivres()->getTitre();
-            var_dump($res);
-            ?>
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    <?php } ?>
-    </tbody>
-</table>
-<script type="text/javascript">
-    $("test").dataTable({
-    });
-</script>
+                <tbody>
+                <?php
+                require_once "../controller/LivreController.php";
+                $LivreController = new LivreController();
+                $increment = 0;
+                foreach ($LivreController->getLivres() as $livre) {
+                $increment++;
+                ?>
 
+                <tr class="<?= ($increment%2 == 1)?"odd":"even" ?>">
+                    <td class="sorting_1  dtr-control"><?= $livre->getTitre() ?></td>
+                    <td><?= $livre->getAnnee() ?></td>
+                    <td><?= $livre->getResume() ?></td>
+                    <td><?= $livre->getEdition() ?></td>
+                    <td class="dt-body-right"><?= $livre->getCategorie() ?></td>
+                </tr>
 
-<!-- Vendor JS Files -->
-<script src="../../assets/vendor/purecounter/purecounter_vanilla.js"></script>
-<script src="../../assets/vendor/aos/aos.js"></script>
-<script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="../../assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="../../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="../../assets/vendor/php-email-form/validate.js"></script>
+                    <?php
+                }
+                ?>
+                </tbody>
 
-<!-- Template Main JS File -->
-<script src="../../assets/js/main.js"></script>
+            </table>
 
+        </div>
+    </div>
+</div>
 </body>
 </html>
