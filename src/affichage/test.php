@@ -36,7 +36,19 @@
     border-radius: 40px;
     background-color: #f7fffa;">
     <div class="hero-callout">
+    <style>
+        .child {
+            transform: translateY(-100%);
+            filter: opacity(0);
+            transition: 0.5s transform 0s, 0.3s filter 0s;
+            display: none;
+        }
+        .slide {
+            transform: translateY(0%);
+            filter: opacity(1);
+        }
 
+    </style>
         <div id="example_wrapper" class="dataTables_wrapper">
             <table id="example" class="display nowrap dataTable dtr-inline collapsed" style="width: 100%;border: solid;margin-bottom: 10px;border-color: #b9b9b9;" aria-describedby="example_info">
                 <thead>
@@ -55,145 +67,51 @@
                         foreach ($LivreController->getLivres() as $livre) {
                             $increment++;
                     ?>
-                    <tr class="<?= ($increment%2 == 1)?"odd":"even" ?>">
+                    <tr class="<?= ($increment%2 == 1)?"odd":"even" ?> parent">
                         <td class="sorting_1  dtr-control"><?= $livre->getTitre() ?></td>
                         <td><?= $livre->getAnnee() ?></td>
                         <td><?= $livre->getEdition() ?></td>
                         <td class="dt-body-right"><?= $livre->getCategorie() ?></td>
                     </tr>
+                    <tr class="child">
+                        <td>Iaa</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    
                     <?php
                         }
                     ?>
+<script>
+  $(document).ready(function() {
 
-<!-- 
-                    <tr class="even">
-                        <td class="sorting_1 dtr-control">Angelica Ramos
-                        </td>
-                        <td>Chief Executive Officer (CEO)
-                        </td>
-                        <td>London
-                        </td>
-                        <td class="dt-body-right">47
-                        </td>
-                        <td class="dt-body-right dtr-hidden" style="display: none;">09/10/2009
-                        </td>
-                        <td class="dt-body-right dtr-hidden" style="display: none;">$1,200,000
-                        </td>
-                    </tr>
-                    
-                    <tr class="odd">
-                        <td class="dtr-control sorting_1" tabindex="0">Ashton Cox
-                        </td>
-                        <td>Junior Technical Author
-                        </td>
-                        <td>San Francisco
-                        </td>
-                        <td class="dt-body-right">66
-                        </td>
-                        <td class="dt-body-right dtr-hidden" style="display: none;">12/01/2009
-                        </td>
-                        <td class="dt-body-right dtr-hidden" style="display: none;">$86,000
-                        </td>
-                    </tr>
-                    <tr class="even">
-                        <td class="sorting_1 dtr-control">Bradley Greer
-                        </td>
-                        <td>Software Engineer
-                        </td>
-                        <td>London
-                        </td>
-                        <td class="dt-body-right">41
-                        </td>
-                        <td class="dt-body-right dtr-hidden" style="display: none;">13/10/2012
-                        </td>
-                        <td class="dt-body-right dtr-hidden" style="display: none;">$132,000
-                        </td>
-                    </tr>
-                    <tr class="odd">
-                        <td class="sorting_1 dtr-control">Brenden Wagner
-                        </td>
-                        <td>Software Engineer
-                        </td>
-                        <td>San Francisco
-                        </td>
-                        <td class="dt-body-right">28
-                        </td>
-                        <td class="dt-body-right dtr-hidden" style="display: none;">07/06/2011
-                        </td>
-                        <td class="dt-body-right dtr-hidden" style="display: none;">$206,850
-                        </td>
-                    </tr>
-                    <tr class="even">
-                        <td class="dtr-control sorting_1" tabindex="0">Brielle Williamson
-                        </td>
-                        <td>Integration Specialist
-                        </td>
-                        <td>New York
-                        </td>
-                        <td class="dt-body-right">61
-                        </td>
-                        <td class="dt-body-right dtr-hidden" style="display: none;">02/12/2012
-                        </td>
-                        <td class="dt-body-right dtr-hidden" style="display: none;">$372,000
-                        </td>
-                    </tr>
-                    <tr class="odd">
-                        <td class="sorting_1 dtr-control">Bruno Nash
-                        </td>
-                        <td>Software Engineer
-                        </td>
-                        <td>London
-                        </td>
-                        <td class="dt-body-right">38
-                        </td>
-                        <td class="dt-body-right dtr-hidden" style="display: none;">03/05/2011
-                        </td>
-                        <td class="dt-body-right dtr-hidden" style="display: none;">$163,500
-                        </td>
-                    </tr>
-                    <tr class="even">
-                        <td class="sorting_1 dtr-control">Caesar Vance
-                        </td>
-                        <td>Pre-Sales Support
-                        </td>
-                        <td>New York
-                        </td>
-                        <td class="dt-body-right">21
-                        </td>
-                        <td class="dt-body-right dtr-hidden" style="display: none;">12/12/2011
-                        </td>
-                        <td class="dt-body-right dtr-hidden" style="display: none;">$106,450
-                        </td>
-                    </tr>
-                    <tr class="odd">
-                        <td class="sorting_1 dtr-control">Cara Stevens
-                        </td>
-                        <td>Sales Assistant
-                        </td>
-                        <td>New York
-                        </td>
-                        <td class="dt-body-right">46
-                        </td>
-                        <td class="dt-body-right dtr-hidden" style="display: none;">06/12/2011
-                        </td>
-                        <td class="dt-body-right dtr-hidden" style="display: none;">$145,600
-                        </td>
-                    </tr>
-                    <tr class="even">
-                        <td class="dtr-control sorting_1" tabindex="0">Cedric Kelly
-                        </td>
-                        <td>Senior Javascript Developer
-                        </td>
-                        <td>Edinburgh
-                        </td>
-                        <td class="dt-body-right">22
-                        </td>
-                        <td class="dt-body-right dtr-hidden" style="display: none;">29/03/2012
-                        </td>
-                        <td class="dt-body-right dtr-hidden" style="display: none;">$433,060
-                        </td>
-                    </tr>
-                 -->
+    
+    
+    
+    
+    // Afficher/masquer la ligne enfant lors du clic sur la ligne parent
+    $('.parent').click(function () {
+        var child = $(this).next('.child');
+            if(child[0].classList[1]=="slide"){
+                child.toggleClass('slide');
+                setTimeout(function() { child.toggle(); }, 500);
+            }else{
+                other = document.getElementsByClassName("slide");
+                if (other.length>0) {
+                    other = other[0];
+                    other.classList.toggle('slide');
+                    setTimeout(function() { other.style.display = "none"; }, 300);
+                }
+                
+                child.toggle();
+                setTimeout(function() { child.toggleClass('slide'); }, 1);
+            }
+    });
+  });
+
+  
+</script>
+
                 </tbody>
               
             </table>
