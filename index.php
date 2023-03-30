@@ -47,7 +47,7 @@
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center">
           <h1 data-aos="fade-up">Bienvenue<br>sur Biblobook</h1>
-          <h2 data-aos="fade-up" data-aos-delay="400">Trouvez vos livre préférés chez nous !</h2>
+          <h2 data-aos="fade-up" data-aos-delay="400">Trouvez vos livres préférés chez nous !</h2>
           <div data-aos="fade-up" data-aos-delay="600">
             <div class="text-center text-lg-start">
               <a href="src/affichage/recherche.php" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
@@ -138,12 +138,12 @@
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                  Projet assez compliqué à concevoir, le plus dur est de s'entendre en équipe mais il y a toujours une solution.
                 </p>
                 <div class="profile mt-auto">
                   <img src="assets/img/template/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                  <h3>Saul Goodman</h3>
-                  <h4>Ceo &amp; Founder</h4>
+                  <h3>Laurine Megane Gbahe Taho</h3>
+                  <h4>Developpeuse 1ere annee</h4>
                 </div>
               </div>
             </div><!-- End testimonial item -->
@@ -158,8 +158,8 @@
                 </p>
                 <div class="profile mt-auto">
                   <img src="assets/img/template/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                  <h3>Sara Wilsson</h3>
-                  <h4>Designer</h4>
+                  <h3>Sami </h3>
+                  <h4>Developpeur 1ere année </h4>
                 </div>
               </div>
             </div><!-- End testimonial item -->
@@ -174,8 +174,8 @@
                 </p>
                 <div class="profile mt-auto">
                   <img src="assets/img/template/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                  <h3>Jena Karlis</h3>
-                  <h4>Store Owner</h4>
+                  <h3>Shradha Kallee-Digumber</h3>
+                  <h4>Developpeuse 1ere année</h4>
                 </div>
               </div>
             </div><!-- End testimonial item -->
@@ -190,8 +190,8 @@
                 </p>
                 <div class="profile mt-auto">
                   <img src="assets/img/template/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                  <h3>Matt Brandon</h3>
-                  <h4>Freelancer</h4>
+                  <h3>Hugo Zins</h3>
+                  <h4>Developpeur 1ere année</h4>
                 </div>
               </div>
             </div><!-- End testimonial item -->
@@ -206,8 +206,8 @@
                 </p>
                 <div class="profile mt-auto">
                   <img src="assets/img/template/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                  <h3>John Larson</h3>
-                  <h4>Entrepreneur</h4>
+                  <h3>Elias Ait-Boukha</h3>
+                  <h4>Developpeur 1ere année</h4>
                 </div>
               </div>
             </div><!-- End testimonial item -->
