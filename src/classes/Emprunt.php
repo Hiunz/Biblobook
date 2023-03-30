@@ -10,6 +10,10 @@ class Emprunt {
         $this->delai = $delai;
     }
 
+    public static function find($empruntId)
+    {
+    }
+
     /**
      * @return mixed
      */
@@ -29,4 +33,8 @@ class Emprunt {
      * @param mixed $delai
      */
     public function setDelai($delai) { $this->delai = $delai; }
+
+    public function save()
+    {
+    }
 }
