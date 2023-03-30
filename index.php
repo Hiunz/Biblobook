@@ -47,7 +47,7 @@
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center">
           <h1 data-aos="fade-up">Bienvenue<br>sur Biblobook</h1>
-          <h2 data-aos="fade-up" data-aos-delay="400">Trouvez vos livres préférés chez nous !</h2>
+          <h2 data-aos="fade-up" data-aos-delay="400">Trouvez vos livre préférés chez nous !</h2>
           <div data-aos="fade-up" data-aos-delay="600">
             <div class="text-center text-lg-start">
               <a href="src/affichage/recherche.php" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
@@ -138,7 +138,7 @@
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
-                  Projet assez compliqué à concevoir, le plus dur est de s'entendre en équipe mais il y a toujours une solution.
+                  C'est pas simple de faire un projet de groupe, mais bon on finit toujours par trouver une solution.
                 </p>
                 <div class="profile mt-auto">
                   <img src="assets/img/template/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
@@ -154,28 +154,12 @@
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                </p>
-                <div class="profile mt-auto">
-                  <img src="assets/img/template/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                  <h3>Sami </h3>
-                  <h4>Developpeur 1ere année </h4>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                  Super projet!
                 </p>
                 <div class="profile mt-auto">
                   <img src="assets/img/template/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                  <h3>Shradha Kallee-Digumber</h3>
-                  <h4>Developpeuse 1ere année</h4>
+                  <h3>Shradha Kallee Digumber</h3>
+                  <h4>Developpeuse 1ere annee</h4>
                 </div>
               </div>
             </div><!-- End testimonial item -->
@@ -186,12 +170,28 @@
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
-                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                  J'aime mettre des controllers
+                </p>
+                <div class="profile mt-auto">
+                  <img src="assets/img/template/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                  <h3>Elias Ait-Boukha</h3>
+                  <h4>Developpeur 1ere annee</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  Je lis bien
                 </p>
                 <div class="profile mt-auto">
                   <img src="assets/img/template/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
                   <h3>Hugo Zins</h3>
-                  <h4>Developpeur 1ere année</h4>
+                  <h4>Developpeur 1ere annee</h4>
                 </div>
               </div>
             </div><!-- End testimonial item -->
@@ -202,12 +202,12 @@
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
-                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                  J'aime mon métier!
                 </p>
                 <div class="profile mt-auto">
                   <img src="assets/img/template/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                  <h3>Elias Ait-Boukha</h3>
-                  <h4>Developpeur 1ere année</h4>
+                  <h3>Tristan Mattei</h3>
+                  <h4>Professeur en developpement informatique</h4>
                 </div>
               </div>
             </div><!-- End testimonial item -->
@@ -228,7 +228,7 @@
 
         <header class="section-header">
           <h2>Contact</h2>
-          <p>Contact Us</p>
+          <p>Contactez nous</p>
         </header>
 
         <div class="row gy-4">
@@ -239,29 +239,29 @@
               <div class="col-md-6">
                 <div class="info-box">
                   <i class="bi bi-geo-alt"></i>
-                  <h3>Address</h3>
-                  <p>A108 Adam Street,<br>New York, NY 535022</p>
+                  <h3>Adresse</h3>
+                  <p>120 rue de la lecture <br>Lyon, 69123</p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="info-box">
                   <i class="bi bi-telephone"></i>
-                  <h3>Call Us</h3>
-                  <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
+                  <h3>Appelez nous</h3>
+                  <p>+33 9 43 42 67 78<br>+33 9 43 42 67 78</p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="info-box">
                   <i class="bi bi-envelope"></i>
-                  <h3>Email Us</h3>
+                  <h3>Envoyez nous un mail</h3>
                   <p>info@example.com<br>contact@example.com</p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="info-box">
                   <i class="bi bi-clock"></i>
-                  <h3>Open Hours</h3>
-                  <p>Monday - Friday<br>9:00AM - 05:00PM</p>
+                  <h3>Heures d'ouverture</h3>
+                  <p>Lundi - Vendredi<br>9h - 17h</p>
                 </div>
               </div>
             </div>
@@ -320,9 +320,9 @@
           <div class="col-lg-5 col-md-12 footer-info">
             <a href="index.html" class="logo d-flex align-items-center">
               <img src="assets/img/template/logo.png" alt="">
-              <span>FlexStart</span>
+              <span>Biblobook</span>
             </a>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+            <p>Connectez vous à la merveilleuse bibliothèque de Lyon</p>
             <div class="social-links mt-3">
               <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
               <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
