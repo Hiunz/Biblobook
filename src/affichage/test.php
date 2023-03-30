@@ -57,6 +57,7 @@
                         <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 168px;" aria-label="Position: activate to sort column ascending">Position</th>
                         <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 75px;" aria-label="Office: activate to sort column ascending">Office</th>
                         <th class="dt-body-right sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 27px;" aria-label="Age: activate to sort column ascending">Age</th>
+                        <th class="dt-body-right sorting dtr-hidden" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 0px; display: none;" aria-label="Start date: activate to sort column ascending">Start date</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -72,11 +73,9 @@
                         <td><?= $livre->getAnnee() ?></td>
                         <td><?= $livre->getEdition() ?></td>
                         <td class="dt-body-right"><?= $livre->getCategorie() ?></td>
-                    </tr>
-                    <tr class="child">
-                        <td>Iaa</td>
-                        <td></td>
-                        <td></td>
+                        <td class="hiddenchild">
+                        ggg
+                        </td>
                     </tr>
                     
                     <?php
@@ -92,6 +91,8 @@
     // Afficher/masquer la ligne enfant lors du clic sur la ligne parent
     $('.parent').click(function () {
         var child = $(this).next('.child');
+
+
             if(child[0].classList[1]=="slide"){
                 child.toggleClass('slide');
                 setTimeout(function() { child.toggle(); }, 500);
