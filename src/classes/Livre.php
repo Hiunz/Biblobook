@@ -1,6 +1,7 @@
 <?php
 class Livre {
 
+    private $id;
     private $titre;
     private $annee;
     private $resume;
@@ -8,8 +9,9 @@ class Livre {
     private $categorie;
 
 
-    public function __construct($titre = null,$annee = null,$resume = null,$edition = null,$categorie = null)
+    public function __construct($id = null,$titre = null,$annee = null,$resume = null,$edition = null,$categorie = null)
     {
+        $this->id = $id;
         $this->titre = $titre;
         $this->annee = $annee;
         $this->resume = $resume;
@@ -90,5 +92,13 @@ class Livre {
         $this->categorie = $categorie;
     }
 
+
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->id;
+    }
 }
 ?>

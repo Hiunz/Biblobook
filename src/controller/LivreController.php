@@ -1,6 +1,5 @@
 <?php
-require_once "../bdd/Bdd.php";
-require_once "../classes/Livre.php";
+
 class livreController
 {
     public function getLivres(){
@@ -10,7 +9,7 @@ class livreController
         $res = $req->fetchAll();
         $result = [];
         foreach ($res as $value) {
-            array_push($result, new Livre($value['titre'], $value['annee'], $value['resume'], $value['edition'], $value['categorie']));
+            array_push($result, new Livre($value['id_livre'], $value['titre'], $value['annee'], $value['resume'], $value['edition'], $value['categorie']));
         }
         return $result;
     }
