@@ -1,6 +1,5 @@
 <?php
-require_once "../bdd/Bdd.php";
-require_once "../classes/Livre.php";
+
 class livreController
 {
     public function getLivres(){
@@ -48,6 +47,5 @@ public function EditLivre($id){
     $req->execute([
         "id"=>$id]);
     }
-
 }
 ?>
