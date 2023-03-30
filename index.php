@@ -118,7 +118,7 @@
       </div>
     </section><!-- End Counts Section -->
 
-    
+
 
     <!-- ======= Datatable ======= -->
     <section style="display: flex;align-items: center;flex-direction: column;padding: 40px;" id="searsh" class="contact">
@@ -158,7 +158,8 @@
                     <thead>
                         <tr>
                             <th class="sorting sorting_asc" style="width: 102px; text-align: center;" aria-sort="ascending" aria-label="Titre du livre">Titre</th>
-                            <th class="sorting" style="width: 168px; text-align: center;" aria-label="Année de publication du livre">Année</th>
+                            <th class="sorting" style="width: 168px; text-align: center;" aria-label="Auteur du livre">Auteur</th>
+                            <th class="sorting" style="width: 70px; text-align: center;" aria-label="Année de publication du livre">Année</th>
                             <th class="sorting" style="width: 75px; text-align: center;" aria-label="Edition du livre">Edition</th>
                             <th class="sorting" style="width: 27px; text-align: center;" aria-label="Catégorie du livre">Catégorie</th>
                             <th style="width: 27px; text-align: center;" aria-label="Bouton d'emprunt">Emprunter</th>
@@ -167,8 +168,10 @@
                     <tbody>
                         <?php
                             require_once "src/controller/LivreController.php";
+                            require_once "src/controller/AuteurController.php";
                             require_once "src/bdd/Bdd.php";
                             require_once "src/classes/Livre.php";
+                            require_once "src/classes/Auteur.php";
                             $LivreController = new LivreController();
                             $increment = 0;
                             foreach ($LivreController->getLivres() as $livre) {
@@ -176,11 +179,12 @@
                         ?>
                         <tr class="<?= ($increment%2 == 1)?"odd":"even" ?> parent">
                             <td class="sorting_1  dtr-control"><?= $livre->getTitre() ?></td>
+                            <td><?= $livre->getAuteur()->getNom() ?></td>
                             <td><?= $livre->getAnnee() ?></td>
                             <td><?= $livre->getEdition() ?></td>
                             <td><?= $livre->getCategorie() ?></td>
                             <td class="selectRow">
-                                <form action="">
+                                <form action="src/affichage/emprunt.php">
                                     <input type="submit" value="Emprunt" class="getstarted" style="margin-left: 0px; border-style: solid; border-color: #404040;">
                                     <input type="hidden" name="livreSelect" value="<?= $livre->getId() ?>">
                                 </form>

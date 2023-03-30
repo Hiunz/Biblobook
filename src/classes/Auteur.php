@@ -1,16 +1,19 @@
 <?php
 class Auteur {
+private $id;
 private $nom;
 private $prenom;
 private $date_de_naissance;
-private $bdd;
+private $pays;
 
-public function __construct($nom,$prenom,$date_de_naissance,$bdd)
+public function __construct($id,$nom,$prenom,$date_de_naissance,$pays)
 {
-    $this->$nom;
-    $this->$prenom;
-    $this->$date_de_naissance;
-    $this->bdd;
+    $this->id = $id;
+    $this->nom = $nom;
+    $this->prenom = $prenom;
+    $this->date_de_naissance = $date_de_naissance;
+    $this->pays = $pays;
+
 }
 
 /**
@@ -42,5 +45,29 @@ public function getPrenom()
 public function setPrenom($prenom)
 {$this->prenom = $prenom;
 return $this;}
+
+/**
+ * Get the value of date_de_naissance
+ */ 
+public function getDate_de_naissance()
+{
+return $this->date_de_naissance;
+}
+
+/**
+ * Get the value of id
+ */ 
+public function getId()
+{
+return $this->id;
+}
+
+/**
+ * Get the value of pays
+ */ 
+public function getPays()
+{
+return $this->pays;
+}
 }
 ?>

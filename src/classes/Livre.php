@@ -7,9 +7,10 @@ class Livre {
     private $resume;
     private $edition;
     private $categorie;
+    private $auteur;
 
 
-    public function __construct($id = null,$titre = null,$annee = null,$resume = null,$edition = null,$categorie = null)
+    public function __construct($id = null,$titre = null,$annee = null,$resume = null,$edition = null,$categorie = null,$auteur = null)
     {
         $this->id = $id;
         $this->titre = $titre;
@@ -17,6 +18,7 @@ class Livre {
         $this->resume = $resume;
         $this->edition = $edition;
         $this->categorie = $categorie;
+        $this->auteur = $auteur;
     }
 
     public static function find($livreId)
@@ -99,6 +101,14 @@ class Livre {
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get the value of auteur
+     */ 
+    public function getAuteur()
+    {
+        return $this->auteur;
     }
 }
 ?>
