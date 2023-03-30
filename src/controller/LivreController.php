@@ -15,5 +15,39 @@ class livreController
         return $result;
     }
 
+
+    public function AddLivre($id){
+        $bdd = (new Bdd())->getBdd();
+    $req= $bdd->prepare("INSERT INTO livre(titre,annee,resume,edition,categorie) VALUES (:titre,:annee,:resume,:edition,:categorie)");
+    $req->execute([
+        "titre"=>$_POST["titre"],
+        "annee"=>$_POST["annee"],
+        "resume"=>$_POST["resume"],
+        "edition"=>$_POST["edition"],
+        "categorie"=>$_POST["categorie"]]
+    );
 }
 
+
+  
+public function EditLivre($id){
+    $bdd = (new Bdd())->getBdd();
+
+    $req= $bdd->prepare("UPDATE livre SET titre=:titre,annee=:annee,resume=:resume,edition=:edition,categorie=:categorie WHERE id=:id");
+    $req->execute([
+        "titre"=>$_POST["titre"],
+        "annee"=>$_POST["annee"],
+        "resume"=>$_POST["resume"],
+        "edition"=>$_POST["edition"],
+        "categorie"=>$_POST["categorie"],
+        "id"=>$id]);
+    }
+    public function DeleteLivre($id){
+    $bdd = (new Bdd())->getBdd();
+    $req= $bdd->prepare("DELETE FROM livre WHERE id=:id");
+    $req->execute([
+        "id"=>$id]);
+    }
+
+}
+?>
