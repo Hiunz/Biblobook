@@ -16,6 +16,11 @@ class Livre {
         $this->edition = $edition;
         $this->categorie = $categorie;
     }
+
+    public static function find($livreId)
+    {
+    }
+
     /**
      * Set the value of titre
      *

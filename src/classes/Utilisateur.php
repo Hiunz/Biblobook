@@ -26,5 +26,9 @@ class Utilisateur {
         $this->admin = $admin;
     }
 
+    public static function find($utilisateurId)
+    {
+    }
+
 
 }
