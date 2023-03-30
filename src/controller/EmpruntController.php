@@ -75,4 +75,29 @@ class EmpruntController
             return "cet emprunt est déjà fini";
         }
     }
+
+    // Méthode pour réserver un livre
+    public function reserverLivre($livreId, $utilisateurId)
+    {
+        $livre = Livre::find($livreId);
+
+        if ($livre->getDisponible()) {
+            $reservation = new Reservation();
+            $reservation->setUtilisateurId($utilisateurId);
+            $reservation->setLivreId($livreId);
+            $reservation->setDate(date("Y-m-d"));
+
+            $livre->ajouterReservation($reservation);
+
+            $reservation->save();
+
+            $livre->setDisponible(false);
+            $livre->save();
+
+            return "Réservation effectuée avec succès !";
+        } else {
+            return "Ce livre n'est pas disponible pour le moment.";
+        }
+    }
+
 }
