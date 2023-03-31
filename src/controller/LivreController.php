@@ -16,16 +16,16 @@ class livreController
     }
 
 
-    public function AddLivre($id){
+    public function AddLivre($livre){
         $bdd = (new Bdd())->getBdd();
-    $req= $bdd->prepare("INSERT INTO livre(titre,annee,resume,edition,categorie) VALUES (:titre,:annee,:resume,:edition,:categorie)");
+    $req= $bdd->prepare("INSERT INTO livre (titre,annee,resume,edition,categorie,ref_auteur) VALUES (:titre,:annee,:resume,:edition,:categorie,:auteur)");
     $req->execute([
-        "titre"=>$_POST["titre"],
-        "annee"=>$_POST["annee"],
-        "resume"=>$_POST["resume"],
-        "edition"=>$_POST["edition"],
-        "categorie"=>$_POST["categorie"]]
-    );
+        "titre"=>$livre->getTitre(),
+        "annee"=>$livre->getAnnee(),
+        "resume"=>$livre->getResume(),
+        "edition"=>$livre->getedition(),
+        "categorie"=>$livre->getCategorie(),
+        "auteur"=>$livre->getAuteur()->getId()]);
 }
 
 
@@ -35,12 +35,12 @@ public function EditLivre($id){
 
     $req= $bdd->prepare("UPDATE livre SET titre=:titre,annee=:annee,resume=:resume,edition=:edition,categorie=:categorie WHERE id=:id");
     $req->execute([
-        "titre"=>$_POST["titre"],
-        "annee"=>$_POST["annee"],
-        "resume"=>$_POST["resume"],
-        "edition"=>$_POST["edition"],
-        "categorie"=>$_POST["categorie"],
-        "id"=>$id]);
+        "titre"=>$livre->getTitre(),
+        "annee"=>$livre->getAnnee(),
+        "resume"=>$livre->getResume(),
+        "edition"=>$livre->getedition(),
+        "categorie"=>$livre->getCategorie(),
+        "auteur"=>$livre->getAuteur()->getId()]);
     }
     public function DeleteLivre($id){
     $bdd = (new Bdd())->getBdd();
