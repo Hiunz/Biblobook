@@ -153,7 +153,7 @@
                             <th class="sorting" style="width: 70px; text-align: center;" aria-label="Année de publication du livre">Année</th>
                             <th class="sorting" style="width: 75px; text-align: center;" aria-label="Edition du livre">Edition</th>
                             <th class="sorting" style="width: 27px; text-align: center;" aria-label="Catégorie du livre">Catégorie</th>
-                            <?= <th style="width: 27px; text-align: center;" aria-label="Bouton d'emprunt">Emprunter</th> ?>
+                            <?= (!empty($_SESSION['user']))?'<th style="width: 27px; text-align: center;" aria-label="Bouton d\'emprunt">Emprunter</th>':'' ?>
                         </tr>
                     </thead>
                     <tbody>
@@ -174,12 +174,17 @@
                             <td><?= $livre->getAnnee() ?></td>
                             <td><?= $livre->getEdition() ?></td>
                             <td><?= $livre->getCategorie() ?></td>
-                            <td class="selectRow">
-                                <form action="src/affichage/emprunt.php">
-                                    <input type="submit" value="Emprunt" class="getstarted" style="margin-left: 0px; border-style: solid; border-color: #404040;">
-                                    <input type="hidden" name="livreSelect" value="<?= $livre->getId() ?>">
-                                </form>
-                            </td>
+                            <?php
+                            if (!empty($_SESSION['user'])) {?>
+                              <td class="selectRow">
+                                  <form action="src/affichage/emprunt.php">
+                                      <input type="submit" value="Emprunt" class="getstarted" style="margin-left: 0px; border-style: solid; border-color: #404040;">
+                                      <input type="hidden" name="livreSelect" value="<?= $livre->getId() ?>">
+                                  </form>
+                              </td>
+                            <?php
+                            }
+                            ?>
                         </tr>
                         <?php
                             }
@@ -281,6 +286,23 @@
                 <div class="profile mt-auto">
                   <img src="assets/img/template/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
                   <h3>Tristan Mattei</h3>
+                  <h4>Professeur en developpement informatique</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  KTM ready to wait!
+                </p>
+                <div class="profile mt-auto">
+                  <img src="assets/img/template/testimonials/testimonials-6.jpg" class="testimonial-img" alt="">
+                  <h3>Sébastien Lemoine</h3>
                   <h4>Professeur en developpement informatique</h4>
                 </div>
               </div>
