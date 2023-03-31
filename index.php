@@ -233,7 +233,7 @@
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
-                  Super projet!
+                  Je suis de retour <br> pour vous jouer de mauvais tour !
                 </p>
                 <div class="profile mt-auto">
                   <img src="assets/img/template/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
@@ -249,7 +249,7 @@
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
-                  J'aime mettre des controllers
+                    Coucouuuu !!!
                 </p>
                 <div class="profile mt-auto">
                   <img src="assets/img/template/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
@@ -265,7 +265,7 @@
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
-                  Je lis bien
+                  Yé sui lé bonhomme des bois qui court avec des fruits dans les poches  
                 </p>
                 <div class="profile mt-auto">
                   <img src="assets/img/template/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
@@ -281,7 +281,7 @@
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
-                  J'aime mon métier!
+                  Je te boude Shradha !
                 </p>
                 <div class="profile mt-auto">
                   <img src="assets/img/template/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
