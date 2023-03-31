@@ -30,7 +30,7 @@ class userController
             $rep = $req->fetch(MYSQLI_ASSOC);
             if ($rep['count']==0) {
                 $req = $bdd->prepare('insert into utilisateur(nom, prenom, email, mdp, tel_fixe, tel_portable, rue, cp, ville) values (:nom, :prenom, :email, :mdp, :telfixe, :telportable, :rue, :cp, :ville)');
-                $req->execute(["nom" => $nom, "prenom" => $prenom, "email" => $email, "mdp" => $mdp,"telfixe" => $telfixe,"telportable" => $telportable, "rue" => $rue, "cp" => $cp, "ville" => $ville]);
+                $req->execute(["nom" => $nom, "prenom" => $prenom, "email" => $email, "mdp" => $mdp[0],"telfixe" => $telfixe,"telportable" => $telportable, "rue" => $rue, "cp" => $cp, "ville" => $ville]);
                 return false;
             }else{
                 return ("Un compte existe déjà avec cet e-mail !!");
@@ -72,7 +72,5 @@ class userController
        
 
    
-    }
 }
-
 ?>
