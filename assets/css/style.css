@@ -2395,3 +2395,17 @@ section {
   font-size: 13px;
   color: #012970;
 }
+.dataTables_filter{
+  margin-bottom: 20px;
+}
+.selectRow{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+td, th{
+  border: solid;
+  border-color: #b9b9b9;
+  padding: 30px;
+  text-align: center;
+}
