@@ -18,6 +18,7 @@ class Utilisateur {
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->email = $email;
+        $this->mdp = $mdp;
         $this->tel_fixe = $tel_fixe;
         $this->tel_portable = $tel_portable;
         $this->rue = $rue;
