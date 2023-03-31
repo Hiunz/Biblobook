@@ -46,4 +46,33 @@ class userController
                 "Oups, une erreur est survenue."))))));
         }
     }
+
+    public function UpdateUser($user){
+        $bdd = (new Bdd())->getBdd();
+         $req= $bdd->prepare("UPDATE utilisateur SET nom=:nom,prenom=:prenom,email=:email,mdp=:mdp,telfixe=:telfixe,telportable =: telportable , rue =:rue , cp=:cp ,ville =: ville WHERE id=:id");
+         $req->execute(["nom" => $_POST["nom"],
+         "prenom" => $_POST["prenom"],
+          "email" => $_POST["email"],
+          "mdp" => $_POST["mdp"],
+          "telfixe" => $_POST["telfixe"],
+          "telportable" => $_POST["telportable"],
+          "rue" => $_POST["rue"],
+          "cp" => $_POST["cp"],
+          "ville" => $_POST["ville"],
+          "id"=>$id]);
+    }
+
+    public function DeleteUser($user){
+        $bdd = (new Bdd())->getBdd();
+        $req= $bdd->prepare("DELETE FROM utilisateur WHERE id=:id");
+        $req->execute(["id"=>$id]);
+    }
+
+       
+       
+
+   
+    }
 }
+
+?>
