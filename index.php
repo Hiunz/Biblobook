@@ -27,6 +27,22 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+
+  <!-- Datatable integration -->
+  <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+  <script>
+      $(document).ready(function () {
+          $('#example').DataTable();
+      });
+  </script>
+
+
+  <!-- Datatable integration -->
+  <?php session_start(); ?>
+
   <!-- =======================================================
   * Template Name: FlexStart
   * Updated: Mar 10 2023 with Bootstrap v5.2.3
@@ -50,7 +66,7 @@
           <h2 data-aos="fade-up" data-aos-delay="400">Trouvez vos livre préférés chez nous !</h2>
           <div data-aos="fade-up" data-aos-delay="600">
             <div class="text-center text-lg-start">
-              <a href="src/affichage/recherche.php" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+              <a href="#searsh" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
                 <span>Cherchez vos livres</span>
                 <i class="bi bi-arrow-right"></i>
               </a>
@@ -118,15 +134,73 @@
       </div>
     </section><!-- End Counts Section -->
 
-    
+
+
+    <!-- ======= Datatable ======= -->
+    <section style="display: flex;align-items: center;flex-direction: column;padding: 40px;" id="searsh" class="contact">
+        <header class="section-header">
+              <h2>Recherche</h2>
+              <p>Cherchez vos livres</p>
+            </header>
+        <div class="col-md-10 info-box navbar" style="display: block;">
+        <div class="hero-callout">
+            <div id="example_wrapper" class="dataTables_wrapper">
+                <table id="example" class="display nowrap dataTable dtr-inline collapsed" style="width: 100%;border: solid;margin-bottom: 10px;border-color: #b9b9b9;" aria-describedby="example_info">
+                    <thead>
+                        <tr>
+                            <th class="sorting sorting_asc" style="width: 102px; text-align: center;" aria-sort="ascending" aria-label="Titre du livre">Titre</th>
+                            <th class="sorting" style="width: 168px; text-align: center;" aria-label="Auteur du livre">Auteur</th>
+                            <th class="sorting" style="width: 70px; text-align: center;" aria-label="Année de publication du livre">Année</th>
+                            <th class="sorting" style="width: 75px; text-align: center;" aria-label="Edition du livre">Edition</th>
+                            <th class="sorting" style="width: 27px; text-align: center;" aria-label="Catégorie du livre">Catégorie</th>
+                            <?= <th style="width: 27px; text-align: center;" aria-label="Bouton d'emprunt">Emprunter</th> ?>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            require_once "src/controller/LivreController.php";
+                            require_once "src/controller/AuteurController.php";
+                            require_once "src/bdd/Bdd.php";
+                            require_once "src/classes/Livre.php";
+                            require_once "src/classes/Auteur.php";
+                            $LivreController = new LivreController();
+                            $increment = 0;
+                            foreach ($LivreController->getLivres() as $livre) {
+                                $increment++;
+                        ?>
+                        <tr class="<?= ($increment%2 == 1)?"odd":"even" ?> parent">
+                            <td class="sorting_1  dtr-control"><?= $livre->getTitre() ?></td>
+                            <td><?= $livre->getAuteur()->getNom() ?></td>
+                            <td><?= $livre->getAnnee() ?></td>
+                            <td><?= $livre->getEdition() ?></td>
+                            <td><?= $livre->getCategorie() ?></td>
+                            <td class="selectRow">
+                                <form action="src/affichage/emprunt.php">
+                                    <input type="submit" value="Emprunt" class="getstarted" style="margin-left: 0px; border-style: solid; border-color: #404040;">
+                                    <input type="hidden" name="livreSelect" value="<?= $livre->getId() ?>">
+                                </form>
+                            </td>
+                        </tr>
+                        <?php
+                            }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+    </section>
+
+
+
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials">
 
       <div class="container" data-aos="fade-up">
 
         <header class="section-header">
-          <h2>Testimonials</h2>
-          <p>What they are saying about us</p>
+          <h2>L'équipe</h2>
+          <p>Mieux nous connaitre</p>
         </header>
 
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="200">
@@ -221,6 +295,7 @@
     </section><!-- End Testimonials Section -->
 
    
+
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
 
@@ -306,6 +381,8 @@
       </div>
 
     </section><!-- End Contact Section -->
+
+
 
   </main><!-- End #main -->
 

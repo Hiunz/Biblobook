@@ -1,20 +1,24 @@
 <?php
 class Livre {
 
+    private $id;
     private $titre;
     private $annee;
     private $resume;
     private $edition;
     private $categorie;
+    private $auteur;
 
 
-    public function __construct($titre = null,$annee = null,$resume = null,$edition = null,$categorie = null)
+    public function __construct($id = null,$titre = null,$annee = null,$resume = null,$edition = null,$categorie = null,$auteur = null)
     {
+        $this->id = $id;
         $this->titre = $titre;
         $this->annee = $annee;
         $this->resume = $resume;
         $this->edition = $edition;
         $this->categorie = $categorie;
+        $this->auteur = $auteur;
     }
 
     public static function find($livreId)
@@ -90,5 +94,21 @@ class Livre {
         $this->categorie = $categorie;
     }
 
+
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Get the value of auteur
+     */ 
+    public function getAuteur()
+    {
+        return $this->auteur;
+    }
 }
 ?>

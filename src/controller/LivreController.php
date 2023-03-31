@@ -8,8 +8,9 @@ class livreController
         $req->execute();
         $res = $req->fetchAll();
         $result = [];
+        $AuteurController = new AuteurController();
         foreach ($res as $value) {
-            array_push($result, new Livre($value['titre'], $value['annee'], $value['resume'], $value['edition'], $value['categorie']));
+            array_push($result, new Livre($value['id_livre'], $value['titre'], $value['annee'], $value['resume'], $value['edition'], $value['categorie'], $AuteurController->getAuteur($value['id_livre'])));
         }
         return $result;
     }
