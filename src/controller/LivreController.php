@@ -48,6 +48,5 @@ public function EditLivre($id){
     $req->execute([
         "id"=>$id]);
     }
-
 }
 ?>

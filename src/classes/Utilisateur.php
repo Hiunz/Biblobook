@@ -2,6 +2,7 @@
 
 class Utilisateur {
 
+    private $id_utilisateur;
     private $nom;
     private $prenom;
     private $email;
@@ -12,7 +13,7 @@ class Utilisateur {
     private $ville;
     private $admin;
 
-    
+
     public function __construct($id_utilisateur, $nom, $prenom, $email, $mdp, $tel_fixe, $tel_portable, $rue, $cp, $ville, $admin)
     {
         $this->nom = $nom;
@@ -31,5 +32,13 @@ class Utilisateur {
     {
     }
 
+
+    /**
+     * @return mixed
+     */
+    public function getIdUtilisateur()
+    {
+        return $this->id_utilisateur;
+    }
 
 }
