@@ -27,6 +27,22 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+
+  <!-- Datatable integration -->
+  <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+  <script>
+      $(document).ready(function () {
+          $('#example').DataTable();
+      });
+  </script>
+
+
+  <!-- Datatable integration -->
+  <?php session_start(); ?>
+
   <!-- =======================================================
   * Template Name: FlexStart
   * Updated: Mar 10 2023 with Bootstrap v5.2.3
@@ -122,31 +138,6 @@
 
     <!-- ======= Datatable ======= -->
     <section style="display: flex;align-items: center;flex-direction: column;padding: 40px;" id="searsh" class="contact">
-        <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
-        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
-        <script>
-            $(document).ready(function () {
-                $('#example').DataTable();
-            });
-        </script>
-        <style>
-            .dataTables_filter{
-                margin-bottom: 20px;
-            }
-            .selectRow{
-                display:flex;
-                flex-direction: column;
-                align-items: center;
-            }
-            td, th{
-                border: solid;
-                border-color: #b9b9b9;
-                padding: 30px;
-                text-align: center;
-            }
-        </style>
         <header class="section-header">
               <h2>Recherche</h2>
               <p>Cherchez vos livres</p>
@@ -162,7 +153,7 @@
                             <th class="sorting" style="width: 70px; text-align: center;" aria-label="Année de publication du livre">Année</th>
                             <th class="sorting" style="width: 75px; text-align: center;" aria-label="Edition du livre">Edition</th>
                             <th class="sorting" style="width: 27px; text-align: center;" aria-label="Catégorie du livre">Catégorie</th>
-                            <th style="width: 27px; text-align: center;" aria-label="Bouton d'emprunt">Emprunter</th>
+                            <?= <th style="width: 27px; text-align: center;" aria-label="Bouton d'emprunt">Emprunter</th> ?>
                         </tr>
                     </thead>
                     <tbody>
