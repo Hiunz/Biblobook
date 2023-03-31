@@ -11,6 +11,12 @@ class EmpruntController
         }
     }
 
-    public function RemoveEmprunt
+    public function RemoveEmprunt(){
+
+    }
+
+    public function updateEmprunt(){
+
+    }
 
 }

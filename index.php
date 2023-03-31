@@ -265,7 +265,7 @@
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
-                  Je lis bien
+                  Yé sui le bonhomme des bois qui court avec des fruits dans les poches pour faire des tartes au fruits.
                 </p>
                 <div class="profile mt-auto">
                   <img src="assets/img/template/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
