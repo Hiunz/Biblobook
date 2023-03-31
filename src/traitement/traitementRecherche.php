@@ -4,6 +4,7 @@ require_once "../controller/LivreController.php";
 $livreController = new LivreController();
 $error = $livreController->getLivres();
 session_start();
+
 if (!$error){
     $_SESSION['message'] = "Voici les livres correspondants à votre recherche";
     exit();
