@@ -25,7 +25,7 @@ include "include/navbar.php";
 ?>
 <form action="../traitement/traitementEmprunt.php" method="post">
     <?php session_start(); ?>
-    
+    4
     <section id="team" class="team">
         <div class="container aos-init aos-animate" data-aos="fade-up">
 
