@@ -2,6 +2,7 @@
 
 class Emprunt {
 
+    private $id_emprunt;
     private $date;
     private $delai;
 
@@ -10,6 +11,13 @@ class Emprunt {
         $this->delai = $delai;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getIdEmprunt()
+    {
+        return $this->id_emprunt;
+    }
 
     /**
      * @return mixed

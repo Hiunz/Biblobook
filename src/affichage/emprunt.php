@@ -24,7 +24,8 @@
 include "include/navbar.php";
 ?>
 <form action="../traitement/traitementEmprunt.php" method="post">
-
+    <?php session_start(); ?>
+    
     <section id="team" class="team">
         <div class="container aos-init aos-animate" data-aos="fade-up">
 
@@ -78,7 +79,6 @@ include "include/navbar.php";
                 <br><br><br>
                     <button type="submit">Valider l'emprunt</button>
                 </div>
-                <?php ?>
             </div>
         </div>
     </section>
