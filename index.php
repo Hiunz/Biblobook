@@ -170,7 +170,7 @@
                         ?>
                         <tr class="<?= ($increment%2 == 1)?"odd":"even" ?> parent">
                             <td class="sorting_1  dtr-control"><?= $livre->getTitre() ?></td>
-                            <td><?= $livre->getAuteur()->getNom() ?></td>
+                            <td><?= $livre->getAuteur()->getPrenom()." ".$livre->getAuteur()->getNom() ?></td>
                             <td><?= $livre->getAnnee() ?></td>
                             <td><?= $livre->getEdition() ?></td>
                             <td><?= $livre->getCategorie() ?></td>

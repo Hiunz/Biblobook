@@ -16,13 +16,6 @@ CREATE TABLE IF NOT EXISTS `ecrire` (
   PRIMARY KEY (`ref_livre`,`ref_auteur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-DROP TABLE IF EXISTS `edition`;
-CREATE TABLE IF NOT EXISTS `edition` (
-  `id_edition` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_edition`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 DROP TABLE IF EXISTS `emprunt`;
 CREATE TABLE IF NOT EXISTS `emprunt` (
   `id_emprunt` int(11) NOT NULL AUTO_INCREMENT,
@@ -37,7 +30,6 @@ DROP TABLE IF EXISTS `exemplaire`;
 CREATE TABLE IF NOT EXISTS `exemplaire` (
   `id_exemplaire` int(11) NOT NULL AUTO_INCREMENT,
   `ref_livre` int(11) NOT NULL,
-  `ref_edition` int(11) NOT NULL,
   PRIMARY KEY (`id_exemplaire`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -89,6 +81,5 @@ ALTER TABLE `emprunt`
   ADD CONSTRAINT `fk_emprunt_utilisateur` FOREIGN KEY (`ref_utilisateur`) REFERENCES `utilisateur` (`id_utilisateur`);
 
 ALTER TABLE `exemplaire`
-  ADD CONSTRAINT `fk_exemplaire_edition` FOREIGN KEY (`ref_edition`) REFERENCES `edition` (`id_edition`),
   ADD CONSTRAINT `fk_exemplaire_livre` FOREIGN KEY (`ref_livre`) REFERENCES `livre` (`id_livre`);
 
