@@ -6,7 +6,7 @@ private $prenom;
 private $date_de_naissance;
 private $pays;
 
-public function __construct($id,$nom,$prenom,$date_de_naissance,$pays)
+public function __construct($id = null,$nom = null,$prenom = null,$date_de_naissance = null,$pays = null)
 {
     $this->id = $id;
     $this->nom = $nom;
