@@ -11,7 +11,7 @@ class EmpruntController
         }
     }
 
-    public function RemoveEmprunt(){
+    public function removeEmprunt(){
 
     }
 
