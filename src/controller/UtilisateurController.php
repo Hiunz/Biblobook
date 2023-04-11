@@ -1,7 +1,14 @@
 <?php
 
-class userController
+class UtilisateurController
 {
+
+    public static function getUtilisateur($id){
+        $req = Bdd::getBdd()->prepare('SELECT nom,prenom,email,tel_fixe,tel_portable,rue,cp,ville,admin FROM utilisateur where id_utilisateur = :id');
+        $req->execute(['id'=>$id]);
+        $res = $req->fetch(MYSQLI_ASSOC);
+        return new Utilisateur($id,$res['nom'],$res['prenom'],$res['email'],null,$res['tel_fix'],$res['tel_portable'],$res['rue'],$res['cp'],$res['vile'],$res['admin']);
+    }
 
     public function connexion($email, $mdp)
     {
@@ -47,25 +54,25 @@ class userController
         }
     }
 
-    public function UpdateUser($user){
+    public function updateUtilisateur($utilisateur){
         $bdd = (new Bdd())->getBdd();
          $req= $bdd->prepare("UPDATE utilisateur SET nom=:nom,prenom=:prenom,email=:email,mdp=:mdp,telfixe=:telfixe,telportable =: telportable , rue =:rue , cp=:cp ,ville =: ville WHERE id=:id");
-         $req->execute(["nom" => $_POST["nom"],
-         "prenom" => $_POST["prenom"],
-          "email" => $_POST["email"],
-          "mdp" => $_POST["mdp"],
-          "telfixe" => $_POST["telfixe"],
-          "telportable" => $_POST["telportable"],
-          "rue" => $_POST["rue"],
-          "cp" => $_POST["cp"],
-          "ville" => $_POST["ville"],
-          "id"=>$id]);
+         $req->execute(["nom" => $utilisateur->getNom(),
+         "prenom" => $utilisateur->getPrenom(),
+          "email" => $utilisateur->getEmail(),
+          "mdp" => $utilisateur->getMdp(),
+          "telfixe" => $utilisateur->getTel_fixe(),
+          "telportable" => $utilisateur->getTel_portable,
+          "rue" => $utilisateur->getRue,
+          "cp" => $utilisateur->getCp,
+          "ville" => $utilisateur->getVille,
+          "id"=>$utilisateur->getId()]);
     }
 
-    public function DeleteUser($user){
+    public function DeleteUtilisateur($utilisateur){
         $bdd = (new Bdd())->getBdd();
         $req= $bdd->prepare("DELETE FROM utilisateur WHERE id=:id");
-        $req->execute(["id"=>$id]);
+        $req->execute(["id"=>$utilisateur->getId()]);
     }
 
        

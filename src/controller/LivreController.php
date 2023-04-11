@@ -15,6 +15,18 @@ class livreController
         return $result;
     }
 
+    public static function getLivre($id){
+        $bdd = (new Bdd())->getBdd();
+        $req = $bdd->prepare('SELECT * FROM livre where id_livre = :id');
+        $req->execute(['id'=>$id]);
+        $res = $req->fetch(MYSQLI_ASSOC);
+        return new Livre($res['id_livre'], $res['titre'], $res['annee'], $res['resume'], $res['edition'], $res['categorie'], AuteurController::getAuteur($res['id_livre']));
+    }
+
+    public static function getNotUsedExemplaire($id){
+        
+    }
+
 
     public function AddLivre($livre){
         $bdd = (new Bdd())->getBdd();
@@ -30,7 +42,7 @@ class livreController
 
 
   
-public function EditLivre($id){
+public function EditLivre($livre){
     $bdd = (new Bdd())->getBdd();
 
     $req= $bdd->prepare("UPDATE livre SET titre=:titre,annee=:annee,resume=:resume,edition=:edition,categorie=:categorie WHERE id=:id");
@@ -40,7 +52,8 @@ public function EditLivre($id){
         "resume"=>$livre->getResume(),
         "edition"=>$livre->getedition(),
         "categorie"=>$livre->getCategorie(),
-        "auteur"=>$livre->getAuteur()->getId()]);
+        "auteur"=>$livre->getAuteur()->getId(),
+        "id"=>$livre->getId()]);
     }
     public function DeleteLivre($id){
     $bdd = (new Bdd())->getBdd();

@@ -2,21 +2,18 @@
 
 class Emprunt {
 
-    private $id_emprunt;
+    private $idEmprunt;
     private $date;
     private $delai;
+    private $livre;
+    private $utilisateur;
 
-    public function __construct($date,$delai) {
+    public function __construct($date,$delai,$livre,$utilisateur,$id = null) {
         $this->date = $date;
         $this->delai = $delai;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIdEmprunt()
-    {
-        return $this->id_emprunt;
+        $this->livre = $livre;
+        $this->utilisateur = $utilisateur;
+        $this->idEmprunt = $id;
     }
 
     /**
@@ -40,4 +37,28 @@ class Emprunt {
     public function setDelai($delai) { $this->delai = $delai; }
 
 
+
+    /**
+     * Get the value of idEmprunt
+     */ 
+    public function getIdEmprunt()
+    {
+        return $this->idEmprunt;
+    }
+
+    /**
+     * Get the value of livre
+     */ 
+    public function getLivre()
+    {
+        return $this->livre;
+    }
+
+    /**
+     * Get the value of utilisateur
+     */ 
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
+    }
 }

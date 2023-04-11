@@ -21,10 +21,6 @@ class Livre {
         $this->auteur = $auteur;
     }
 
-    public static function find($livreId)
-    {
-    }
-
     /**
      * Set the value of titre
      *

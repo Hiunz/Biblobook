@@ -1,7 +1,7 @@
 <?php
     require_once "../bdd/Bdd.php";
-    require_once "../controller/userController.php";
-    $userController = new userController();
+    require_once "../controller/utilisateurController.php";
+    $userController = new utilisateurController();
     $user = $userController->connexion($_POST["email"], $_POST["mdp"]);
     session_start();
     if (is_int($user)) {

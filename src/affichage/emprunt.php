@@ -22,10 +22,10 @@
 <body>
 <?php
 include "include/navbar.php";
+session_start();
+$_SESSION['livre'] = $_POST['livreSelect']; 
 ?>
-<form action="../traitement/traitementEmprunt.php" method="post">
-    <?php session_start(); ?>
-    4
+<form action="../traitement/emprunt.php" method="post">
     <section id="team" class="team">
         <div class="container aos-init aos-animate" data-aos="fade-up">
 

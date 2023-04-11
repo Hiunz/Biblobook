@@ -1,7 +1,7 @@
 <?php
     class AuteurController{
 
-        Public function getAuteur($id_livre){
+        Public static function getAuteur($id_livre){
             $bdd = (new Bdd())->getBdd();
             $req = $bdd->prepare('select auteur.*, pays.nom as pays_nom from ecrire INNER JOIN auteur on ref_auteur = id_auteur INNER JOIN pays on ref_pays = id_pays WHERE ref_livre = :id ;');
             $req->execute(['id'=>$id_livre]);

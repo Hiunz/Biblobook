@@ -90,25 +90,30 @@
                     <tbody>
                         <?php
                             require_once "../controller/LivreController.php";
-                            require_once "../controller/AuteurController.php";
+                            require_once "../controller/EmpruntController.php";
                             require_once "../bdd/Bdd.php";
                             require_once "../classes/Livre.php";
                             require_once "../classes/Auteur.php";
-                            $EmpruntController = new EmpruntController();
+                            $empruntController = new EmpruntController();
                             $increment = 0;
                             foreach ($empruntController->getEmprunts() as $emprunt) {
                                 $increment++;
                         ?>
                         <tr class="<?= ($increment%2 == 1)?"odd":"even" ?> parent">
                             <td class="sorting_1  dtr-control"><?= $livre->getTitre() ?></td>
-                            <td><?= $emprunt-> ?></td>
-                            <td><?= $livre->getAnnee() ?></td>
-                            <td><?= $livre->getEdition() ?></td>
-                            <td><?= $livre->getCategorie() ?></td>
+                            <td><?= $emprunt->getLivre()->getTitre() ?></td>
+                            <td><?= $emprunt->getLivre()->getAuteur()->getPrenom." - ".$emprunt->getLivre()->getAuteur()->getNom ?></td>
+                            <td><?= $emprunt->getLivre()->getEdition() ?></td>
+                            <td>
+                              <form action="src/affichage/detailUtil">
+                                <input type="submit" value="Emprunt" class="getstarted" style="margin-left: 0px; border-style: solid; border-color: #404040;">
+                                <input type="hidden" name="livreSelect" value="<?= $livre->getId() ?>">
+                              </form>
+                            </td>
                             <td class="selectRow">
                                 <form action="src/affichage/emprunt.php">
-                                    <input type="submit" value="Emprunt" class="getstarted" style="margin-left: 0px; border-style: solid; border-color: #404040;">
-                                    <input type="hidden" name="livreSelect" value="<?= $livre->getId() ?>">
+                                  <input type="submit" value="Emprunt" class="getstarted" style="margin-left: 0px; border-style: solid; border-color: #404040;">
+                                  <input type="hidden" name="livreSelect" value="<?= $livre->getId() ?>">
                                 </form>
                             </td>
                         </tr>

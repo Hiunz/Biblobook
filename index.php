@@ -177,9 +177,9 @@
                             <?php
                             if (!empty($_SESSION['user'])) {?>
                               <td class="selectRow">
-                                  <form action="src/affichage/emprunt.php">
-                                      <input type="submit" value="Emprunt" class="getstarted" style="margin-left: 0px; border-style: solid; border-color: #404040;">
-                                      <input type="hidden" name="livreSelect" value="<?= $livre->getId() ?>">
+                                  <form action="src/affichage/emprunt.php" method="POST">
+                                    <input type="hidden" name="livreSelect" value="<?= $livre->getId() ?>">
+                                    <input type="submit" value="Emprunt" class="getstarted" style="margin-left: 0px; border-style: solid; border-color: #404040;">
                                   </form>
                               </td>
                             <?php
