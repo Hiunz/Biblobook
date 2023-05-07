@@ -83,7 +83,7 @@
                             <th class="sorting" style="width: 70px; text-align: center;" aria-label="Année de publication du livre">Année</th>
                             <th class="sorting" style="width: 75px; text-align: center;" aria-label="Edition du livre">Edition</th>
                             <th class="sorting" style="width: 27px; text-align: center;" aria-label="Catégorie du livre">Catégorie</th>
-                            <?= (!empty($_SESSION['user']))?'<th style="width: 27px; text-align: center;" aria-label="Bouton d\'emprunt">Emprunter</th>':'' ?>
+                            <?= (!empty($_SESSION['user']))?'<td style="width: 27px; text-align: center;" aria-label="Bouton daction">Action</td>':'' ?>
                         </tr>
                     </thead>
                     <tbody>
@@ -107,9 +107,10 @@
                             <?php
                             if (!empty($_SESSION['user'])) {?>
                               <td class="selectRow">
-                                  <form action="src/affichage/emprunt.php">
-                                      <input type="submit" value="ajouter" class="getstarted" style="margin-left: 0px; border-style: solid; border-color: #404040;">
+                                  <form action="../traitement/GestionLivre.php" method="Post">
                                       <input type="hidden" name="livreSelect" value="<?= $livre->getId() ?>">
+                                      <button type="submit" name="modif" value="true">modifier </button>
+                                      <button type="submit" name="supp" value="true">supprimer </button>
                                   </form>
                               </td>
                             <?php

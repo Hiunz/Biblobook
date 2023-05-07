@@ -42,7 +42,7 @@ class livreController
 
 
   
-public function EditLivre($livre){
+public static function EditLivre($livre){
     $bdd = (new Bdd())->getBdd();
 
     $req= $bdd->prepare("UPDATE livre SET titre=:titre,annee=:annee,resume=:resume,edition=:edition,categorie=:categorie WHERE id=:id");
@@ -55,11 +55,11 @@ public function EditLivre($livre){
         "auteur"=>$livre->getAuteur()->getId(),
         "id"=>$livre->getId()]);
     }
-    public function DeleteLivre($id){
+    public static function DeleteLivre($id){
     $bdd = (new Bdd())->getBdd();
     $req= $bdd->prepare("DELETE FROM livre WHERE id=:id");
     $req->execute([
-        "id"=>$id]);
+        "id"=>$id->getId()]);
     }
 }
 ?>
