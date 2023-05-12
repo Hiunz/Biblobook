@@ -124,6 +124,9 @@
                 </table>
             </div>
         </div>
+            <a class="getstarted scrollto" href="AjouterLivre.php" style="width: 100px; text-align: center; position: absolute; left: 200px; left: 200px; top: 25px;">
+                Ajouter
+            </a>
         </div>
     </section>
 

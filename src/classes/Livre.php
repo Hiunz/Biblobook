@@ -41,6 +41,30 @@ class Livre {
     public function getAnnee() {return $this->annee;}
 
     /**
+     * @param mixed|null $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @param mixed|null $edition
+     */
+    public function setEdition($edition)
+    {
+        $this->edition = $edition;
+    }
+
+    /**
+     * @param mixed|null $auteur
+     */
+    public function setAuteur($auteur)
+    {
+        $this->auteur = $auteur;
+    }
+
+    /**
      * Set the value of annee
      *
      * @return  self
