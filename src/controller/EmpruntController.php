@@ -9,20 +9,34 @@ class EmpruntController {
         $res = $req->fetchAll();
         $result = [];
         foreach ($res as $value) {
-            array_push($result, new Emprunt($value["date"], $value["delais"], livreController::getLivre($value["ref_livre"]), UtilisateurController::getUtilisateur($value["ref_utilisateur"]), $value["id_emprunt"]));
+            $livre = null;
+            $utilisateur = null;
+            if (isset($value["ref_livre"])) {
+                $livre = livreController::getLivre($value["ref_livre"]);
+            }
+            if (isset($value["ref_utilisateur"])) {
+                $utilisateur = UtilisateurController::getUtilisateur($value["ref_utilisateur"]);
+            }
+            array_push($result, new Emprunt($value["date"], $value["delais"], $livre, $utilisateur, $value["id_emprunt"]));
         }
         return $result;
     }
 
-    public static function addEmprunt(Emprunt $emprunt){
-        if (isset($_POST['date_start']) && isset($_POST['$date_end'])) {
+
+    public static function addEmprunt(Emprunt $emprunt )
+    {
+        try {
             $bdd = (new Bdd())->getBdd();
-            $req = $bdd->prepare('INSERT INTO emprunt (date, delai, ref_exemplaire, ref_utilisateur) VALUES (:date, :delai, :ref_exemplaire, :ref_utilisateur)');
-            $req->execute(['date' => $emprunt->getDate(),
-                           'delai' => $emprunt->getDelai(),
-                           'ref_exemplaire' => LivreController::getNotUsedExemplaire($emprunt->getLivre()->getId()),
-                           'ref_utilisateur' => $_SESSION['ref_utilisateur']]);
+            $req = $bdd->prepare('INSERT INTO emprunt (date_start, date_end, ref_livre, ref_utilisateur) VALUES (:date_start, :date_end, :ref_livre, :ref_utilisateur)');
+            $req->execute([
+                'date_start' => $emprunt->getDateStart(),
+                'date_end' => $emprunt->getDateEnd(),
+                'ref_livre' => $emprunt->getLivre()->getId(),
+                'ref_utilisateur' => $emprunt->getUtilisateur()->getId_utilisateur()]);
+        } catch (SQLiteException $exception) {
+            return $exception;
         }
+
     }
 
     public function removeEmprunt(Emprunt $emprunt){

@@ -1,6 +1,6 @@
 <?php
 
-class livreController
+class LivreController
 {
     public function getLivres(){
         $bdd = (new Bdd())->getBdd();
@@ -24,8 +24,16 @@ class livreController
     }
 
     public static function getNotUsedExemplaire($id){
-        
+        $bdd = (new Bdd())->getBdd();
+        $req = $bdd->prepare('SELECT id_exemplaire FROM exemplaire WHERE ref_livre = :id AND id_exemplaire NOT IN (SELECT ref_exemplaire FROM emprunt)');
+        $req->execute(['id' => $id]);
+        $res = $req->fetch();
+        if ($res) {
+            return $res['id_exemplaire'];
+        }
+        return null;
     }
+
 
 
     public function AddLivre($livre){
