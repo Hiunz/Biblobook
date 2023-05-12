@@ -14,4 +14,9 @@
         } else if (isset($_POST["supp"])) {
             LivreController::DeleteLivre($_POST["livreSelect"]);
         }
+        else if (isset($_POST["ajouter"])){
+            header("Location: ../affichage/AjouterLivre.php");
+
+
+        }
     }

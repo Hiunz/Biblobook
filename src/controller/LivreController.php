@@ -36,16 +36,15 @@ class LivreController
 
 
 
-    public function AddLivre($livre){
+    public static function AddLivre($livre){
         $bdd = (new Bdd())->getBdd();
-    $req= $bdd->prepare("INSERT INTO livre (titre,annee,resume,edition,categorie,ref_auteur) VALUES (:titre,:annee,:resume,:edition,:categorie,:auteur)");
+    $req= $bdd->prepare("INSERT INTO livre (titre,annee,resume,edition,categorie) VALUES (:titre,:annee,:resume,:edition,:categorie)");
     $req->execute([
         "titre"=>$livre->getTitre(),
         "annee"=>$livre->getAnnee(),
         "resume"=>$livre->getResume(),
         "edition"=>$livre->getedition(),
-        "categorie"=>$livre->getCategorie(),
-        "auteur"=>$livre->getAuteur()->getId()]);
+        "categorie"=>$livre->getCategorie()]);
 }
 
 

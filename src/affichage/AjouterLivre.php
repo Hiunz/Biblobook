@@ -5,16 +5,43 @@
 </head>
 <body>
 <h1>Ajouter un livre</h1>
-<form method="post" action="gestionLivre">
+<form method="post" action="../traitement/AjouterLivre.php">
     <label for="titre">Titre:</label>
     <input type="text" id="titre" name="titre" required>
     <br>
     <label for="auteur">Auteur:</label>
-    <input type="text" id="auteur" name="auteur" required>
+    <?php
+    require_once "../classes/Auteur.php";
+    require_once "../bdd/Bdd.php";
+    require_once "../controller/AuteurController.php";
+    ?>
+    <select name="auteur">
+        <?php
+        foreach (AuteurController::getAuteurs() as $auteur){
+        ?>
+        <option value="<?= $auteur->getId() ?>"><?= $auteur->getNom()." ".$auteur->getPrenom() ?></option>
+        <?php
+        }
+        ?>
+
+    </select>
     <br>
     <label for="anneePublication">Année de publication:</label>
-    <input type="number" id="anneePublication" name="anneePublication" required>
+    <input type="number" id="annee" name="annee" required>
     <br>
+    <br>
+    <label for="resume">Resumé: </label>
+    <input type="text" id="resume" name="resume" required>
+    <br>
+    <label for="edition">Edition:</label>
+    <input type="text" id="edition" name="edition" required>
+    <br>
+    <br>
+    <label for="categorie">Catégorie:</label>
+    <input type="text" id="categorie" name="categorie" required>
+    <br>
+    <br>
+
     <input type="submit" value="Ajouter">
 </form>
 </body>
