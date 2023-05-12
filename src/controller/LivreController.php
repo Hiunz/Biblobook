@@ -1,6 +1,6 @@
 <?php
 
-class livreController
+class LivreController
 {
     public function getLivres(){
         $bdd = (new Bdd())->getBdd();
@@ -24,8 +24,16 @@ class livreController
     }
 
     public static function getNotUsedExemplaire($id){
-        
+        $bdd = (new Bdd())->getBdd();
+        $req = $bdd->prepare('SELECT id_exemplaire FROM exemplaire WHERE ref_livre = :id AND id_exemplaire NOT IN (SELECT ref_exemplaire FROM emprunt)');
+        $req->execute(['id' => $id]);
+        $res = $req->fetch();
+        if ($res) {
+            return $res['id_exemplaire'];
+        }
+        return null;
     }
+
 
 
     public function AddLivre($livre){
@@ -45,21 +53,20 @@ class livreController
 public static function EditLivre($livre){
     $bdd = (new Bdd())->getBdd();
 
-    $req= $bdd->prepare("UPDATE livre SET titre=:titre,annee=:annee,resume=:resume,edition=:edition,categorie=:categorie WHERE id=:id");
+    $req= $bdd->prepare("UPDATE livre SET titre=:titre,annee=:annee,resume=:resume,edition=:edition,categorie=:categorie WHERE id_livre=:id");
     $req->execute([
         "titre"=>$livre->getTitre(),
         "annee"=>$livre->getAnnee(),
         "resume"=>$livre->getResume(),
         "edition"=>$livre->getedition(),
         "categorie"=>$livre->getCategorie(),
-        "auteur"=>$livre->getAuteur()->getId(),
         "id"=>$livre->getId()]);
     }
     public static function DeleteLivre($id){
     $bdd = (new Bdd())->getBdd();
-    $req= $bdd->prepare("DELETE FROM livre WHERE id=:id");
+    $req= $bdd->prepare("DELETE FROM livre WHERE id_livre=:id");
     $req->execute([
-        "id"=>$id->getId()]);
+        "id"=>$id]);
     }
 }
 ?>

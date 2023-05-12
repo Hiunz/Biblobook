@@ -8,7 +8,8 @@
     if(isset($_POST["livreSelect"])) {
         if (isset($_POST["modif"])) {
             Session_Start();
-            $_SESSION["livreSelect"]=livreController::getLivre($_POST["livreSelect"]);
+            $controller = new LivreController;
+            $_SESSION["livreSelect"]= $_POST["livreSelect"];
             header("Location: ../affichage/ModifLivre.php");
         } else if (isset($_POST["supp"])) {
             LivreController::DeleteLivre($_POST["livreSelect"]);
