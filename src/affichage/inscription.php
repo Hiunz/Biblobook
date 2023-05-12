@@ -83,11 +83,11 @@
                 </div>                
 
                 <div class="col-md-6">
-                  <input value="<?= (isset($_SESSION['cache']['telfixe'][0]))?$_SESSION['cache']['telfixe'][0]:""?>" type="tel" name="telfixe[]" class="form-control" placeholder="N°Tel portable" required="">
+                  <input value="<?= (isset($_SESSION['cache']['telfixe'][0]))?$_SESSION['cache']['telfixe'][0]:""?>" type="tel" name="telfixe[]" class="form-control" placeholder="N°Tel portable" pattern="[0-9]{10}" required="">
                 </div>
 
                 <div class="col-md-6">
-                  <input value="<?= (isset($_SESSION['cache']['telfixe'][1]))?$_SESSION['cache']['telfixe'][1]:""?>" type="tel" name="telfixe[]" class="form-control" placeholder="N°Tel fixe" required="">
+                  <input value="<?= (isset($_SESSION['cache']['telfixe'][1]))?$_SESSION['cache']['telfixe'][1]:""?>" type="tel" name="telfixe[]" class="form-control" placeholder="N°Tel fixe" pattern="[0-9]{10}" required="">
                 </div>
                 
                 <div class="col-md-12">

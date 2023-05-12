@@ -41,7 +41,16 @@
 
 
   <!-- Datatable integration -->
-  <?php session_start(); ?>
+  <?php 
+    session_start(); 
+    require_once "src/controller/LivreController.php";
+    require_once "src/controller/AuteurController.php";
+    require_once "src/bdd/Bdd.php";
+    require_once "src/classes/Livre.php";
+    require_once "src/classes/Auteur.php";
+    $LivreController = new LivreController();
+    $livres = $LivreController->getLivres();
+  ?>
 
   <!-- =======================================================
   * Template Name: FlexStart
@@ -103,8 +112,8 @@
             <div class="count-box">
               <i class="bi bi-journal-richtext" style="color: #ee6c20;"></i>
               <div>
-                <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Projects</p>
+                <span data-purecounter-start="0" data-purecounter-end="<?= sizeof($livres) ?>" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Livres</p>
               </div>
             </div>
           </div>
@@ -158,14 +167,8 @@
                     </thead>
                     <tbody>
                         <?php
-                            require_once "src/controller/LivreController.php";
-                            require_once "src/controller/AuteurController.php";
-                            require_once "src/bdd/Bdd.php";
-                            require_once "src/classes/Livre.php";
-                            require_once "src/classes/Auteur.php";
-                            $LivreController = new LivreController();
                             $increment = 0;
-                            foreach ($LivreController->getLivres() as $livre) {
+                            foreach ($livres as $livre) {
                                 $increment++;
                         ?>
                         <tr class="<?= ($increment%2 == 1)?"odd":"even" ?> parent">
