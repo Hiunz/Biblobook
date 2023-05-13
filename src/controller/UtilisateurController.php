@@ -4,10 +4,10 @@ class UtilisateurController
 {
 
     public static function getUtilisateur($id){
-        $req = Bdd::getBdd()->prepare('SELECT nom,prenom,email,tel_fixe,tel_portable,rue,cp,ville,admin FROM utilisateur where id_utilisateur = :id');
+        $req = Bdd::getBdd()->prepare('SELECT nom,prenom,email,tel_fixe,tel_portable,rue,cp,ville,mdp,admin FROM utilisateur where id_utilisateur = :id');
         $req->execute(['id'=>$id]);
         $res = $req->fetch(MYSQLI_ASSOC);
-        return new Utilisateur($id,$res['nom'],$res['prenom'],$res['email'],null,$res['tel_fix'],$res['tel_portable'],$res['rue'],$res['cp'],$res['vile'],$res['admin']);
+        return new Utilisateur($id,$res['nom'],$res['prenom'],$res['email'],$res['mdp'],$res['tel_fixe'],$res['tel_portable'],$res['rue'],$res['cp'],$res['ville'],$res['admin']);
     }
 
     public function connexion($email, $mdp)

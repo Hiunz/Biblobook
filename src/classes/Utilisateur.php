@@ -222,4 +222,24 @@ class Utilisateur {
 
         return $this;
     }
+
+    /**
+     * Get the value of mdp
+     */ 
+    public function getMdp()
+    {
+        return $this->mdp;
+    }
+
+    /**
+     * Set the value of mdp
+     *
+     * @return  self
+     */ 
+    public function setMdp($mdp)
+    {
+        $this->mdp = $mdp;
+
+        return $this;
+    }
 }
