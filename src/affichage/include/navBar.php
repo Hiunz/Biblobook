@@ -14,7 +14,7 @@
   $user;
   if (isset($_SESSION['user'])) {
     $user = UtilisateurController::getUtilisateur($_SESSION['user'])->getAdmin();
-  } else { $user = null; }
+  } else { $user = 2; }
   ?>
   <header id="header" class="header fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
@@ -65,7 +65,7 @@
           </li>
           <?php
             }
-            if ($user != null) {
+            if ($user != 2) {
           ?>
           <li>
             <a href="<?=($fileName=="index.php")?"src/":"../"?>affichage/MesEmprunts.php" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
@@ -82,7 +82,7 @@
             </a>
           </li>
           <?php
-            if ($user == null) {
+            if ($user == 2) {
           ?>
           <li><a class="getstarted scrollto" href="<?=($fileName=="index.php")?"src/affichage/":""?>connexion.php">Se connecter</a></li>
           <?php
@@ -93,7 +93,7 @@
           </form>
           <?php
             }
-            if ($user != null) {
+            if ($user != 2) {
           ?>
           <li>
             <a href="<?=($fileName=="index.php")?"src/affichage/":""?>Monprofil.php" style="padding: 0; ">
