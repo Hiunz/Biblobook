@@ -24,9 +24,6 @@
   <link href="../../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
-  <link href="../../assets/css/style.css" rel="stylesheet">
-
 
   <!-- Datatable integration -->
   <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -46,8 +43,21 @@
     }
   </style>
 
+
+  <!-- Template Main CSS File -->
+  <link href="../../assets/css/style.css" rel="stylesheet">
+
+
   <!-- Datatable integration -->
-  <?php session_start(); ?>
+  <?php
+  session_start();
+  require_once "../controller/LivreController.php";
+  require_once "../controller/AuteurController.php";
+  require_once "../bdd/Bdd.php";
+  require_once "../classes/Livre.php";
+  require_once "../classes/Auteur.php";
+  $LivreController = new LivreController();
+  ?>
 
   <!-- =======================================================
   * Template Name: FlexStart
@@ -88,12 +98,6 @@
                     </thead>
                     <tbody>
                         <?php
-                            require_once "../controller/LivreController.php";
-                            require_once "../controller/AuteurController.php";
-                            require_once "../bdd/Bdd.php";
-                            require_once "../classes/Livre.php";
-                            require_once "../classes/Auteur.php";
-                            $LivreController = new LivreController();
                             $increment = 0;
                             foreach ($LivreController->getLivres() as $livre) {
                                 $increment++;

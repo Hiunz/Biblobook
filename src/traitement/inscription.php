@@ -4,7 +4,6 @@
     $userController = new UtilisateurController();
     var_dump($_POST);
     $error = $userController->inscription($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['mdp'], $_POST['telfixe'], $_POST['rue'], $_POST['cp'], $_POST['ville']);
-    session_start();
     if (!$error) {
         $_SESSION['message'] = "Votre compte à été créé avec succès !";
         header("Location: ../affichage/connexion.php");

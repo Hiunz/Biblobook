@@ -53,7 +53,7 @@
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           -->
           <?php
-            if ($user) {
+            if ($user == 1) {
           ?>
           <li class="dropdown"><a href="#"><span>Gestion Admin</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -78,7 +78,6 @@
           <li>
             <a href="<?=($fileName=="index.php")?"":"../../index.php"?>#searsh" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
               <span>Cherchez vos livres</span>
-              <i class="bi bi-arrow-right"></i>
             </a>
           </li>
           <?php
@@ -88,7 +87,7 @@
           <?php
             } else {
           ?>
-          <form action="" method="post">
+          <form action="<?=($fileName=="index.php")?"":"../../index.php"?>" method="post">
             <li><input type="submit" class="getstarted scrollto" name="deco" value="Se déconnecter" style="border-width: 0;"></li>
           </form>
           <?php

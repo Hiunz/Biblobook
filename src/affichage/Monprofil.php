@@ -61,22 +61,14 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center" style="display: flex;align-items: center; padding: 30px;">
-          <h1 data-aos="fade-up" class="aos-init aos-animate">Inscription</h1>
-          <h2 data-aos="fade-up" data-aos-delay="400" class="aos-init aos-animate">ou</h2>
-          <div data-aos="fade-up" data-aos-delay="600" class="aos-init aos-animate">
-            <div class="text-center text-lg-start">
-              <a href="connexion.php" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
-                <span>Se connecter</span>
-                <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </div>
+          <h1 data-aos="fade-up" class="aos-init aos-animate">Modifie ton profil !!</h1>
+          
         </div>
         
           
 
           <div class="col-lg-6 contact">
-            <form action="../traitement/inscription.php" method="post" class="php-email-form">
+            <form action="../traitement/Monprofil.php" method="post" class="php-email-form">
               <div class="row gy-4 counts" style="padding:10px;">
 
                 <div class="col-md-6">

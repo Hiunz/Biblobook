@@ -55,24 +55,44 @@ class UtilisateurController
     }
 
     public function updateUtilisateur($utilisateur){
-        $bdd = (new Bdd())->getBdd();
-         $req= $bdd->prepare("UPDATE utilisateur SET nom=:nom,prenom=:prenom,email=:email,mdp=:mdp,telfixe=:telfixe,telportable =: telportable , rue =:rue , cp=:cp ,ville =: ville WHERE id=:id");
-         $req->execute(["nom" => $utilisateur->getNom(),
-         "prenom" => $utilisateur->getPrenom(),
-          "email" => $utilisateur->getEmail(),
-          "mdp" => $utilisateur->getMdp(),
-          "telfixe" => $utilisateur->getTel_fixe(),
-          "telportable" => $utilisateur->getTel_portable,
-          "rue" => $utilisateur->getRue,
-          "cp" => $utilisateur->getCp,
-          "ville" => $utilisateur->getVille,
-          "id"=>$utilisateur->getId()]);
+        if (!empty($utilisateur->getNom())&&!empty($utilisateur->getPrenom())&&!empty($utilisateur->getEmail())&&!empty($utilisateur->getMdp())&&$utilisateur->getMdp()[0]==$utilisateur->getMdp()[1]&&!empty($utilisateur->getRue())&&!empty($utilisateur->getCp())&&!empty($utilisateur->getVille())) {
+            $bdd = (new Bdd())->getBdd();
+            $req = $bdd->prepare('select count(id_utilisateur) as count from utilisateur where email = :email');
+            $req->execute(["email" => $utilisateur->getEmail()]);
+            $rep = $req->fetch(MYSQLI_ASSOC);
+            if ($rep['count']==0 || $utilisateur->getEmail() == $this->getUtilisateur($utilisateur->getIdUtilisateur())->getEmail()) {
+                $req= $bdd->prepare("UPDATE utilisateur SET nom=:nom, prenom=:prenom, email=:email, mdp=:mdp, tel_fixe=:telfixe, tel_portable =:telportable, rue =:rue, cp=:cp, ville=:ville WHERE id_utilisateur=:id");
+                $req->execute([
+                "nom" => $utilisateur->getNom(),
+                "prenom" => $utilisateur->getPrenom(),
+                "email" => $utilisateur->getEmail(),
+                "mdp" => $utilisateur->getMdp()[0],
+                "telfixe" => $utilisateur->getTel_fixe(),
+                "telportable" => $utilisateur->getTel_portable(),
+                "rue" => $utilisateur->getRue(),
+                "cp" => $utilisateur->getCp(),
+                "ville" => $utilisateur->getVille(),
+                "id"=>$utilisateur->getIdUtilisateur()]);
+                return false;
+            }else{
+                return ("Un compte existe déjà avec cet e-mail !!");
+            }
+        }else{
+            return (
+                (empty($utilisateur->getNom()))?"Vous n'avez saisit aucun nom.":
+                ((empty($utilisateur->getPrenom()))?"Vous n'avez saisit aucun prénom.":
+                ((empty($utilisateur->getEmail()))?"Vous n'avez saisit aucun e-mail.":
+                ((empty($utilisateur->getMdp()))?"Vous n'avez saisit aucun mot de passe.":
+                (($utilisateur->getMdp()[0]!=$utilisateur->getMdp()[1])?"Le mot de passe et la confirmations ne sont pas identique.":
+                ((empty($utilisateur->getRue())&&empty($utilisateur->getCp())&&empty($utilisateur->getVille()))?"Vous n'avez saisit aucune adresse.":
+                "Oups, une erreur est survenue."))))));
+        }
     }
 
-    public function DeleteUtilisateur($utilisateur){
+    public function deleteUtilisateur($id){
         $bdd = (new Bdd())->getBdd();
         $req= $bdd->prepare("DELETE FROM utilisateur WHERE id=:id");
-        $req->execute(["id"=>$utilisateur->getId()]);
+        $req->execute(["id"=>$id]);
     }
 
        

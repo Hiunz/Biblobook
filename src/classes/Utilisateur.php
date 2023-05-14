@@ -15,8 +15,9 @@ class Utilisateur {
     private $admin;
 
 
-    public function __construct($id_utilisateur, $nom, $prenom, $email, $mdp, $tel_fixe, $tel_portable, $rue, $cp, $ville, $admin)
+    public function __construct($id_utilisateur, $nom, $prenom, $email, $mdp, $tel_fixe, $tel_portable, $rue, $cp, $ville, $admin = false)
     {
+        $this->id_utilisateur = $id_utilisateur;
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->email = $email;
