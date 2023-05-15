@@ -17,6 +17,12 @@
   } else { $user = 2; }
   ?>
   <header id="header" class="header fixed-top">
+
+
+    <!-- Template Main JS File -->
+  <script src="<?= ($fileName=="index.php")?"":"../../" ?>assets/js/main.js" defer></script>
+
+
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <a href="<?=($fileName=="index.php")?"":"../../"?>index.php" class="logo d-flex align-items-center">
