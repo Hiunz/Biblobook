@@ -15,6 +15,12 @@
   if (isset($_SESSION['user'])) {
     $user = UtilisateurController::getUtilisateur($_SESSION['user'])->getAdmin();
   } else { $user = 2; }
+  if ($user==2 && ($fileName!='connexion.php' && $fileName!='inscription.php' && $fileName!='index.php' )) {
+    header("Location: ../../index.php");
+    }
+  else if ($user==0 && ($fileName!='connexion.php' && $fileName!='inscription.php' && $fileName!='index.php' && $fileName!='emprunt.php' && $fileName!='MesEmprunts.php' && $fileName!='Monprofil.php' )) {
+    header("Location: ../../index.php");
+    }
   ?>
   <header id="header" class="header fixed-top">
 
