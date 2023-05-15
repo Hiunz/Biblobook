@@ -14,6 +14,7 @@
     require_once "../classes/Auteur.php";
     require_once "../bdd/Bdd.php";
     require_once "../controller/AuteurController.php";
+    var_dump(AuteurController::getAuteurs());
     ?>
     <select name="auteur">
         <?php

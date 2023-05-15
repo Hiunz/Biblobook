@@ -157,11 +157,12 @@
                 <table id="example" class="display nowrap dataTable dtr-inline collapsed" style="width: 100%;border: solid;margin-bottom: 10px;border-color: #b9b9b9;" aria-describedby="example_info">
                     <thead>
                         <tr>
-                            <th class="sorting sorting_asc" style="width: 102px; text-align: center;" aria-sort="ascending" aria-label="Titre du livre">Titre</th>
-                            <th class="sorting" style="width: 168px; text-align: center;" aria-label="Auteur du livre">Auteur</th>
-                            <th class="sorting" style="width: 70px; text-align: center;" aria-label="Année de publication du livre">Année</th>
+                            <th class="sorting sorting_asc" style="width: 130px; text-align: center;" aria-sort="ascending" aria-label="Titre du livre">Titre</th>
+                            <th class="sorting" style="width: 60px; text-align: center;" aria-label="Auteur du livre">Auteur</th>
+                            <th class="sorting" style="width: 40px; text-align: center;" aria-label="Année de publication du livre">Année</th>
                             <th class="sorting" style="width: 75px; text-align: center;" aria-label="Edition du livre">Edition</th>
                             <th class="sorting" style="width: 27px; text-align: center;" aria-label="Catégorie du livre">Catégorie</th>
+                            <th class="sorting" style="width: 27px; text-align: center;" aria-label="Nombre d'exemplaire du livre">Exemplaire</th>
                             <?= (!empty($_SESSION['user']))?'<th style="width: 27px; text-align: center;" aria-label="Bouton d\'emprunt">Emprunter</th>':'' ?>
                         </tr>
                     </thead>
@@ -177,6 +178,7 @@
                             <td><?= $livre->getAnnee() ?></td>
                             <td><?= $livre->getEdition() ?></td>
                             <td><?= $livre->getCategorie() ?></td>
+                            <td><?= $livre->getNbExemplaires() ?></td>
                             <?php
                             if (!empty($_SESSION['user'])) {?>
                               <td class="selectRow">

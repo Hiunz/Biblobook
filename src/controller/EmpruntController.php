@@ -23,19 +23,14 @@ class EmpruntController {
     }
 
 
-    public static function addEmprunt(Emprunt $emprunt )
-    {
-        try {
-            $bdd = (new Bdd())->getBdd();
-            $req = $bdd->prepare('INSERT INTO emprunt (date_start, date_end, ref_livre, ref_utilisateur) VALUES (:date_start, :date_end, :ref_livre, :ref_utilisateur)');
-            $req->execute([
-                'date_start' => $emprunt->getDateStart(),
-                'date_end' => $emprunt->getDateEnd(),
-                'ref_livre' => $emprunt->getLivre()->getId(),
-                'ref_utilisateur' => $emprunt->getUtilisateur()->getId_utilisateur()]);
-        } catch (SQLiteException $exception) {
-            return $exception;
-        }
+    public static function addEmprunt(Emprunt $emprunt ){
+        $bdd = (new Bdd())->getBdd();
+        $req = $bdd->prepare('INSERT INTO emprunt (date_start, date_end, ref_exemplaire, ref_utilisateur) VALUES (:date_start, :date_end, :ref_exemplaire, :ref_utilisateur)');
+        $req->execute([
+            'date_start' => $emprunt->getDateStart(),
+            'date_end' => $emprunt->getDateEnd(),
+            'ref_exemplaire' => $emprunt->getRefExemplaire(),
+            'ref_utilisateur' => $emprunt->getUtilisateur()->getIdUtilisateur()]);
 
     }
 

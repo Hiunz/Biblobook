@@ -4,12 +4,10 @@ class Exemplaire
 {
     private $idExemplaire;
     private $refLivre;
-    private $refEdition;
 
-    public function __construct($idExemplaire, $refLivre, $refEdition){
-        $this->id_exemplaire = $idExemplaire;
+    public function __construct($idExemplaire, $refLivre){
+        $this->idExemplaire = $idExemplaire;
         $this->refLivre = $refLivre;
-        $this->refEdition = $refEdition;
 }
 
     /**

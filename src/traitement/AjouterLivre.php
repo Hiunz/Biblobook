@@ -11,5 +11,6 @@ $livre->setAnnee($_POST['annee']);
 $livre->setResume($_POST['resume']);
 $livre->setEdition($_POST['edition']);
 $livre->setCategorie($_POST['categorie']);
-$livre->setAuteur(AuteurController::getAuteur($_POST['auteur']));
+$livre->setAuteur((isset($_POST['auteur']))?AuteurController::getAuteur($_POST['auteur']):new Auteur(null));
 LivreController::AddLivre($livre);
+header("Location: ../affichage/GestionLivre.php");

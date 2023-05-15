@@ -23,14 +23,18 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+    <?php
+        include "include/navbar.php";
+        session_start();
+        if (isset($_POST['livreSelect'])) {
+            $_SESSION['livre'] = $_POST['livreSelect']; 
+        } else if (!isset($_SESSION['livre'])) { header("Location: ../../index.php"); }
+    ?>
+
 </head>
 
 <body>
-<?php
-include "include/navbar.php";
-session_start();
-$_SESSION['livre'] = $_POST['livreSelect']; 
-?>
 <form action="../traitement/emprunt.php" method="post">
     <section id="team" class="team">
         <div class="container aos-init aos-animate" data-aos="fade-up">
@@ -53,15 +57,13 @@ $_SESSION['livre'] = $_POST['livreSelect'];
                             </div>
                         </div>
                         <?php
-                            if (isset($_POST['livreSelect'])) {
-                                require_once "../controller/LivreController.php";
-                                require_once "../controller/AuteurController.php";
-                                require_once "../bdd/Bdd.php";
-                                require_once "../classes/Livre.php";
-                                require_once "../classes/Auteur.php";
-                                $LivreController = new LivreController();
-                                $livre = $LivreController->getLivre($_POST['livreSelect']);
-                            }
+                            require_once "../controller/LivreController.php";
+                            require_once "../controller/AuteurController.php";
+                            require_once "../bdd/Bdd.php";
+                            require_once "../classes/Livre.php";
+                            require_once "../classes/Auteur.php";
+                            $LivreController = new LivreController();
+                            $livre = $LivreController->getLivre($_SESSION['livre']);
                         ?>
                         <div class="member-info">
                             <h4><?= $livre->getTitre() ?></h4>

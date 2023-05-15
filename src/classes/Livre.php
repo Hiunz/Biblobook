@@ -8,9 +8,10 @@ class Livre {
     private $edition;
     private $categorie;
     private $auteur;
+    private $nbExemplaires;
 
 
-    public function __construct($id = null,$titre = null,$annee = null,$resume = null,$edition = null,$categorie = null,$auteur = null)
+    public function __construct($id = null,$titre = null,$annee = null,$resume = null,$edition = null,$categorie = null,$auteur = null, $nbExemplaires = null)
     {
         $this->id = $id;
         $this->titre = $titre;
@@ -19,6 +20,7 @@ class Livre {
         $this->edition = $edition;
         $this->categorie = $categorie;
         $this->auteur = $auteur;
+        $this->nbExemplaires = $nbExemplaires;
     }
 
     /**
@@ -129,6 +131,14 @@ class Livre {
     public function getAuteur()
     {
         return $this->auteur;
+    }
+
+    /**
+     * Get the value of nbExemplaires
+     */ 
+    public function getNbExemplaires()
+    {
+        return $this->nbExemplaires;
     }
 }
 ?>

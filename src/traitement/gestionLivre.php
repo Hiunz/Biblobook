@@ -13,6 +13,7 @@
             header("Location: ../affichage/ModifLivre.php");
         } else if (isset($_POST["supp"])) {
             LivreController::DeleteLivre($_POST["livreSelect"]);
+            header("Location: ../affichage/GestionLivre.php");
         }
         else if (isset($_POST["ajouter"])){
             header("Location: ../affichage/AjouterLivre.php");

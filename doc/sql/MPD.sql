@@ -19,8 +19,8 @@ CREATE TABLE IF NOT EXISTS `ecrire` (
 DROP TABLE IF EXISTS `emprunt`;
 CREATE TABLE IF NOT EXISTS `emprunt` (
   `id_emprunt` int(11) NOT NULL AUTO_INCREMENT,
-  `date` date NOT NULL,
-  `delais` int(3) NOT NULL,
+  `date_start` date NOT NULL,
+  `date_end` date NOT NULL,
   `ref_exemplaire` int(11) NOT NULL,
   `ref_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id_emprunt`)
