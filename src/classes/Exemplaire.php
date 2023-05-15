@@ -3,11 +3,11 @@
 class Exemplaire
 {
     private $idExemplaire;
-    private $refLivre;
+    private $Livre;
 
-    public function __construct($idExemplaire, $refLivre){
+    public function __construct($idExemplaire, $Livre){
         $this->idExemplaire = $idExemplaire;
-        $this->refLivre = $refLivre;
+        $this->Livre = $Livre;
 }
 
     /**
@@ -15,38 +15,22 @@ class Exemplaire
      */
     public function getIdExemplaire()
     {
-        return $this->id_exemplaire;
+        return $this->idExemplaire;
     }
 
     /**
      * @return mixed
      */
-    public function getRefLivre()
+    public function getLivre()
     {
-        return $this->refLivre;
+        return $this->Livre;
     }
 
     /**
      * @param mixed $refLivre
      */
-    public function setRefLivre($refLivre)
+    public function setLivre($refLivre)
     {
-        $this->refLivre = $refLivre;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getRefEdition()
-    {
-        return $this->refEdition;
-    }
-
-    /**
-     * @param mixed $refEdition
-     */
-    public function setRefEdition($refEdition)
-    {
-        $this->refEdition = $refEdition;
+        $this->Livre = $refLivre;
     }
 }

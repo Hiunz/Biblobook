@@ -21,4 +21,14 @@
             if($res){ return $res[0]; } else { return false; }
         }
 
+        public static function getExemplaire($id){
+            $bdd = (new Bdd())->getBdd();
+            $req = $bdd->prepare('SELECT exemplaire.*, livre.* from exemplaire inner join livre on exemplaire.ref_livre = livre.id_livre where exemplaire.id_exemplaire = :id ;');
+            $req->execute(['id'=>$id]);
+            $res = $req->fetch(MYSQLI_ASSOC);
+            if($res){
+                return new Exemplaire($id, LivreController::getLivre($res['id_livre'])); 
+            } else { return false; }
+        }
+
     }

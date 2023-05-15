@@ -95,7 +95,7 @@
                             require_once "../classes/Auteur.php";
                             $AuteurController = new AuteurController();
                             $increment = 0;
-                            foreach ($AuteurController->getAuteur() as $auteur) {
+                            foreach ($AuteurController->getAuteurs() as $auteur) {
                                 $increment++;
                         ?>
                         <tr class="<?= ($increment%2 == 1)?"odd":"even" ?> parent">
