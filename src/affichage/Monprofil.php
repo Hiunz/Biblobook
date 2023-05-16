@@ -68,7 +68,7 @@
           
 
           <div class="col-lg-6 contact">
-            <form action="../traitement/Monprofil.php" method="post" class="php-email-form">
+            <form action="../traitement/monProfil.php" method="post" class="php-email-form">
               <div class="row gy-4 counts" style="padding:10px;">
 
                 <div class="col-md-6">

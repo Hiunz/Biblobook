@@ -13,7 +13,7 @@
 </head>
 <body>
 <h1>Modifier un livre</h1>
-<form method="post" action="../traitement/ModifLivre.php">
+<form method="post" action="../traitement/modifLivre.php">
     <?php
         $livre = (new LivreController())->getLivre($_SESSION['livreSelect']);
     ?>

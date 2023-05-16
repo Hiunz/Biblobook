@@ -5,7 +5,7 @@
 </head>
 <body>
 <h1>Ajouter un livre</h1>
-<form method="post" action="../traitement/AjouterLivre.php">
+<form method="post" action="../traitement/ajouterLivre.php">
     <label for="titre">Titre:</label>
     <input type="text" id="titre" name="titre" required>
     <br>

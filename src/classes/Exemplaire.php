@@ -2,20 +2,20 @@
 
 class Exemplaire
 {
-    private $idExemplaire;
+    private $id;
     private $Livre;
 
     public function __construct($idExemplaire, $Livre){
-        $this->idExemplaire = $idExemplaire;
+        $this->id = $idExemplaire;
         $this->Livre = $Livre;
 }
 
     /**
      * @return mixed
      */
-    public function getIdExemplaire()
+    public function getId()
     {
-        return $this->idExemplaire;
+        return $this->id;
     }
 
     /**

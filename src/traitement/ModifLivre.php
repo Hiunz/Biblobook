@@ -12,7 +12,7 @@ $livre->setResume($_POST['resume']);
 $livre->setEdition($_POST['edition']);
 $livre->setCategorie($_POST['categorie']);
 LivreController::EditLivre($livre);
-
+header("Location: ../affichage/gestionLivre.php");
 
 
 

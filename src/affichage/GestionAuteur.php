@@ -124,7 +124,7 @@
                 </table>
             </div>
         </div>
-            <a class="getstarted scrollto" href="AjouterAuteur.php" style="width: 100px; text-align: center; position: absolute; left: 200px; left: 200px; top: 25px;">
+            <a class="getstarted scrollto" href="ajouterAuteur.php" style="width: 100px; text-align: center; position: absolute; left: 200px; left: 200px; top: 25px;">
                 Ajouter
             </a>
         </div>

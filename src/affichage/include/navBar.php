@@ -6,19 +6,19 @@
   require_once ((($fileName=="index.php")?"src/":"../").'controller/UtilisateurController.php');
   require_once ((($fileName=="index.php")?"src/":"../").'classes/Utilisateur.php');
   require_once ((($fileName=="index.php")?"src/":"../").'bdd/Bdd.php');
-  //session_start();
+  session_start();
   if (isset($_POST['deco'])) {
     $_SESSION = null;
     session_destroy();
   }
-  $user;
+  $user = 0;
   if (isset($_SESSION['user'])) {
-    $user = UtilisateurController::getUtilisateur($_SESSION['user'])->getAdmin();
-  } else { $user = 2; }
-  if ($user==2 && ($fileName!='connexion.php' && $fileName!='inscription.php' && $fileName!='index.php' )) {
-    header("Location: ../../index.php");
+    $user = (UtilisateurController::getUtilisateur($_SESSION['user'])->getAdmin())?2:1;
+  }
+  if ($user==0 && ($fileName!='connexion.php' && $fileName!='inscription.php' && $fileName!='index.php' )) {
+    //header("Location: ../../index.php");
     }
-  else if ($user==0 && ($fileName!='connexion.php' && $fileName!='inscription.php' && $fileName!='index.php' && $fileName!='emprunt.php' && $fileName!='MesEmprunts.php' && $fileName!='Monprofil.php' )) {
+  else if ($user==1 && ($fileName!='connexion.php' && $fileName!='inscription.php' && $fileName!='index.php' && $fileName!='ajouterEmprunt.php' && $fileName!='mesEmprunts.php' && $fileName!='monprofil.php' )) {
     header("Location: ../../index.php");
     }
   ?>
@@ -65,7 +65,7 @@
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           -->
           <?php
-            if ($user == 1) {
+            if ($user == 2) {
           ?>
           <li class="dropdown"><a href="#"><span>Gestion Admin</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -77,7 +77,7 @@
           </li>
           <?php
             }
-            if ($user != 2) {
+            if ($user != 0) {
           ?>
           <li>
             <a href="<?=($fileName=="index.php")?"src/":"../"?>affichage/MesEmprunts.php" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
@@ -93,7 +93,7 @@
             </a>
           </li>
           <?php
-            if ($user == 2) {
+            if ($user == 0) {
           ?>
           <li><a class="getstarted scrollto" href="<?=($fileName=="index.php")?"src/affichage/":""?>connexion.php">Se connecter</a></li>
           <?php
@@ -104,7 +104,7 @@
           </form>
           <?php
             }
-            if ($user != 2) {
+            if ($user != 0) {
           ?>
           <li>
             <a href="<?=($fileName=="index.php")?"src/affichage/":""?>Monprofil.php" style="padding: 0; ">

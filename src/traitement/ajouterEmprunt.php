@@ -21,11 +21,11 @@ if(isset($_POST['date_start']) && isset($_POST['date_end']) && $_POST['date_star
         header("Location: ../../index.php");
     } else {
         $_SESSION['error'] = "Il n'y a malheureusement <br> aucun exemplaire du livre disponible <br> pour ces dates là <br> ".date("d/m/Y", strtotime($_POST['date_start']))." - ".date("d/m/Y", strtotime($_POST['date_start']));
-        header("Location: ../affichage/emprunt.php");
+        header("Location: ../affichage/ajouterEmprunt.php");
 
     }
 } else {
     $_SESSION['error'] = 'La date de fin d\'emprunt doit être inférieure à la date de début d\'emprunt';
-    header("Location: ../affichage/emprunt.php");
+    header("Location: ../affichage/ajouterEmprunt.php");
 }
 

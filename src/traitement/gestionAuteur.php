@@ -10,7 +10,7 @@ if(isset($_POST["auteurSelect"])) {
         Session_Start();
         $controller = new AuteurController();
         $_SESSION["auteurSelect"]= $_POST["auteurSelect"];
-        header("Location: ../affichage/ModifAuteur.php");
+        header("Location: ../affichage/modifAuteur.php");
     } else if (isset($_POST["supp"])) {
         AuteurController::DeleteAuteur($_POST["auteurSelect"]);
     }

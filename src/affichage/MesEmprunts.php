@@ -51,7 +51,6 @@
 
   <!-- Datatable integration -->
   <?php
-  session_start();
   require_once "../controller/EmpruntController.php";
   require_once "../controller/ExemplaireController.php";
   require_once "../controller/AuteurController.php";

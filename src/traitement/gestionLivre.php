@@ -10,13 +10,13 @@
             Session_Start();
             $controller = new LivreController;
             $_SESSION["livreSelect"]= $_POST["livreSelect"];
-            header("Location: ../affichage/ModifLivre.php");
+            header("Location: ../affichage/modifLivre.php");
         } else if (isset($_POST["supp"])) {
             LivreController::DeleteLivre($_POST["livreSelect"]);
             header("Location: ../affichage/GestionLivre.php");
         }
         else if (isset($_POST["ajouter"])){
-            header("Location: ../affichage/AjouterLivre.php");
+            header("Location: ../affichage/ajouterLivre.php");
 
 
         }

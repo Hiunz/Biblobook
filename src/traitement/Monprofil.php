@@ -15,7 +15,7 @@
         }else{
             $_SESSION['error'] = $error;
             $_SESSION['cache'] = $_POST;
-            header("Location: ../affichage/Monprofil.php");
+            header("Location: ../affichage/monprofil.php");
             exit();
         }
     }

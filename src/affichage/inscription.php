@@ -30,7 +30,6 @@
   <!-- Map integration -->
   <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
   <script src="//cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-  <?php session_start();?>
 
 </head>
 

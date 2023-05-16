@@ -50,7 +50,6 @@
 
   <!-- Datatable integration -->
   <?php
-  session_start();
   require_once "../controller/LivreController.php";
   require_once "../controller/AuteurController.php";
   require_once "../bdd/Bdd.php";
@@ -128,7 +127,7 @@
                 </table>
             </div>
         </div>
-            <a class="getstarted scrollto" href="AjouterLivre.php" style="width: 100px; text-align: center; position: absolute; left: 200px; left: 200px; top: 25px;">
+            <a class="getstarted scrollto" href="ajouterLivre.php" style="width: 100px; text-align: center; position: absolute; left: 200px; left: 200px; top: 25px;">
                 Ajouter
             </a>
         </div>

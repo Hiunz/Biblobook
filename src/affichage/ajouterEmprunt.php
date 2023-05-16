@@ -26,7 +26,6 @@
 
     <?php
         include "include/navbar.php";
-        session_start();
         if (isset($_POST['livreSelect'])) {
             $_SESSION['livre'] = $_POST['livreSelect']; 
         } else if (!isset($_SESSION['livre'])) { header("Location: ../../index.php"); }
@@ -35,7 +34,7 @@
 </head>
 
 <body>
-<form action="../traitement/emprunt.php" method="post">
+<form action="../traitement/ajouterEmprunt.php" method="post">
     <section id="team" class="team">
         <div class="container aos-init aos-animate" data-aos="fade-up">
 

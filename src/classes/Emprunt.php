@@ -2,7 +2,7 @@
 
 class Emprunt {
 
-    private $idEmprunt;
+    private $id;
     private $date_start;
     private $date_end;
     private $utilisateur;
@@ -14,24 +14,24 @@ class Emprunt {
         $this->date_end = $date_end;
         $this->livre = $livre;
         $this->utilisateur= $utilisateur;
-        $this->idEmprunt = $id;
+        $this->id = $id;
     }
 
 
     /**
      * @return mixed|null
      */
-    public function getIdEmprunt()
+    public function getId()
     {
-        return $this->idEmprunt;
+        return $this->id;
     }
 
     /**
-     * @param mixed|null $idEmprunt
+     * @param mixed|null $id
      */
-    public function setIdEmprunt($idEmprunt)
+    public function setId($id)
     {
-        $this->idEmprunt = $idEmprunt;
+        $this->id = $id;
     }
 
     /**
